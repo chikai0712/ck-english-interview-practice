@@ -51,6 +51,8 @@
     .number { color: var(--accent); font-size: .8rem; font-weight: 700; letter-spacing: .08em; }
     .english { margin: 5px 0 11px; font-size: 1.06rem; }
     .chinese { margin: 0; padding-top: 11px; border-top: 1px solid #edf0f2; color: var(--muted); font-size: .95rem; }
+    .example { margin: 8px 0 0; color: var(--muted); font-size: .9rem; }
+    .term { color: var(--accent-dark); font-weight: 700; }
     button {
       flex: 0 0 auto; border: 1px solid var(--accent); border-radius: 6px; background: var(--paper);
       color: var(--accent-dark); cursor: pointer; font: inherit; font-size: .88rem; font-weight: 650;
@@ -178,6 +180,122 @@
       <article class="card">
         <div class="card-top"><div><div class="number">TECH 09｜跨部門落地</div><p class="english" data-speech="My role is often to connect business needs with technical work. I work with business, research and development, manufacturing, quality, and IT teams. I help define priorities, review technical options, run a proof of concept, manage risks, and move the project from planning to testing and go-live.">My role is often to connect business needs with technical work. I work with business, research and development, manufacturing, quality, and IT teams. I help define priorities, review technical options, run a proof of concept, manage risks, and move the project from planning to testing and go-live.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
         <p class="chinese">我的角色經常是連接業務需求與技術執行，與業務、研發、製造、品質及 IT 團隊合作。我會協助排定優先順序、審查技術方案、進行概念驗證、管理風險，並將專案從規劃推進到測試及正式上線。</p>
+      </article>
+    </section>
+
+    <section class="section-head" aria-labelledby="terms-title">
+      <div class="eyebrow">IT Vocabulary</div>
+      <h2 id="terms-title">IT 技術專有名詞</h2>
+      <p class="subtitle">先熟悉工作中最常出現的名詞，再練習用完整句子說明。</p>
+    </section>
+
+    <section class="intro-list" aria-label="IT 技術專有名詞">
+      <article class="card">
+        <div class="card-top"><div><div class="number">TERM 01</div><p class="english" data-speech="Enterprise Resource Planning, or ERP, is a system for finance, purchasing, inventory, and business operations."><span class="term">ERP</span> — Enterprise Resource Planning</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">企業資源規劃：管理財務、採購、庫存及企業營運流程。</p>
+        <p class="example">例句：We integrated ERP with the production and warehouse systems.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">TERM 02</div><p class="english" data-speech="Manufacturing Execution System, or MES, tracks production orders, work in process, equipment status, and production results."><span class="term">MES</span> — Manufacturing Execution System</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">製造執行系統：追蹤工單、在製品、設備狀態及生產結果。</p>
+        <p class="example">例句：MES gives the factory real-time production information.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">TERM 03</div><p class="english" data-speech="A data platform collects, stores, and prepares data from different systems for reporting and analysis."><span class="term">Data Platform</span></p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">數據平台：收集、儲存及整理不同系統的資料，供報表與分析使用。</p>
+        <p class="example">例句：We built a data platform for production and business dashboards.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">TERM 04</div><p class="english" data-speech="An API, or Application Programming Interface, allows two systems to exchange data in a controlled way."><span class="term">API</span> — Application Programming Interface</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">應用程式介面：讓兩個系統以受控方式交換資料。</p>
+        <p class="example">例句：The API connects the CRM system with ERP.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">TERM 05</div><p class="english" data-speech="Information Technology and Operational Technology, or IT and OT, connect business systems with factory equipment and industrial networks."><span class="term">IT/OT Integration</span></p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">IT／OT 整合：連接企業系統、工廠設備及工業網路。</p>
+        <p class="example">例句：IT and OT integration must protect production stability.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">TERM 06</div><p class="english" data-speech="An Edge Gateway collects data from machines near the production line and sends useful information to business or cloud systems."><span class="term">Edge Gateway</span></p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">邊緣閘道器：在靠近產線的位置收集設備資料，再將需要的資訊送到企業或雲端系統。</p>
+        <p class="example">例句：The Edge Gateway collects equipment data without changing the control loop.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">TERM 07</div><p class="english" data-speech="A dashboard presents important business or system information in one place, so managers can make faster decisions."><span class="term">Management Dashboard</span></p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">管理儀表板：將重要的業務或系統資訊集中呈現，協助管理階層快速決策。</p>
+        <p class="example">例句：The dashboard shows production progress, inventory, and quality issues.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">TERM 08</div><p class="english" data-speech="DevOps is a way of working that connects development, operations, automation, and monitoring to deliver software faster and more reliably."><span class="term">DevOps</span></p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">DevOps：結合開發、維運、自動化及監控，讓軟體更快且更穩定地交付。</p>
+        <p class="example">例句：DevOps helps the team release changes with better control.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">TERM 09</div><p class="english" data-speech="Recovery Time Objective and Recovery Point Objective, or RTO and RPO, define how quickly a system must recover and how much data loss is acceptable."><span class="term">RTO / RPO</span> — Recovery Time / Point Objective</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">復原時間目標／復原點目標：定義系統要在多久內恢復，以及可接受多少資料遺失。</p>
+        <p class="example">例句：We set RTO and RPO for critical factory and business systems.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">TERM 10</div><p class="english" data-speech="Mean Time to Detect and Mean Time to Recover, or MTTD and MTTR, measure how quickly a team finds and fixes an incident."><span class="term">MTTD / MTTR</span> — Mean Time to Detect / Recover</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">平均偵測時間／平均修復時間：衡量團隊發現及修復事件的速度。</p>
+        <p class="example">例句：Better monitoring helped us reduce MTTD and MTTR.</p>
+      </article>
+    </section>
+
+    <section class="section-head" aria-labelledby="phrases-title">
+      <div class="eyebrow">Work English</div>
+      <h2 id="phrases-title">常用單字與工作片語</h2>
+      <p class="subtitle">適合面試、會議、專案討論與跨部門溝通。</p>
+    </section>
+
+    <section class="intro-list" aria-label="常用單字與工作片語">
+      <article class="card">
+        <div class="card-top"><div><div class="number">PHRASE 01</div><p class="english" data-speech="Let's align on the priorities before we start the project."><span class="term">align on</span> — 達成共識</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">例句：Let's align on the priorities before we start the project.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">PHRASE 02</div><p class="english" data-speech="We need to clarify the requirements before we select a solution."><span class="term">clarify the requirements</span> — 釐清需求</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">例句：We need to clarify the requirements before we select a solution.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">PHRASE 03</div><p class="english" data-speech="I will follow up with the vendor and share the result tomorrow."><span class="term">follow up with</span> — 跟進、追蹤</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">例句：I will follow up with the vendor and share the result tomorrow.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">PHRASE 04</div><p class="english" data-speech="We need to identify the root cause before we apply a fix."><span class="term">identify the root cause</span> — 找出根本原因</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">例句：We need to identify the root cause before we apply a fix.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">PHRASE 05</div><p class="english" data-speech="This issue has a high impact on production, so we should handle it first."><span class="term">high impact</span> — 影響重大</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">例句：This issue has a high impact on production, so we should handle it first.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">PHRASE 06</div><p class="english" data-speech="This solution is practical, scalable, and easy to maintain."><span class="term">practical and scalable</span> — 實用且可擴充</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">例句：This solution is practical, scalable, and easy to maintain.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">PHRASE 07</div><p class="english" data-speech="We can start with a proof of concept before making a full investment."><span class="term">proof of concept</span> — 概念驗證、PoC</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">例句：We can start with a proof of concept before making a full investment.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">PHRASE 08</div><p class="english" data-speech="We have a backup plan in case the first solution does not work."><span class="term">backup plan</span> — 備案</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">例句：We have a backup plan in case the first solution does not work.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">PHRASE 09</div><p class="english" data-speech="I will keep you updated on the project progress."><span class="term">keep you updated</span> — 持續提供最新進度</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">例句：I will keep you updated on the project progress.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">PHRASE 10</div><p class="english" data-speech="The project is on track, and we expect to complete the next milestone on time."><span class="term">on track</span> — 按照進度</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">例句：The project is on track, and we expect to complete the next milestone on time.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">PHRASE 11</div><p class="english" data-speech="We should make a decision based on data and business impact."><span class="term">based on data</span> — 根據數據</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">例句：We should make a decision based on data and business impact.</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">PHRASE 12</div><p class="english" data-speech="I will take ownership of this issue and coordinate the next steps."><span class="term">take ownership</span> — 負責到底、主動承擔</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">例句：I will take ownership of this issue and coordinate the next steps.</p>
       </article>
     </section>
     <p class="note">播放功能使用瀏覽器內建語音合成。若沒有聲音，請確認裝置音量及瀏覽器的語音服務設定。</p>
