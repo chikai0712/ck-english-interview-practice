@@ -35,6 +35,11 @@
     }
     .toolbar label { color: var(--muted); font-size: .92rem; }
     input[type="range"] { accent-color: var(--accent); width: 150px; vertical-align: middle; }
+    select {
+      max-width: 230px; margin-left: 5px; padding: 6px 30px 6px 9px;
+      border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink);
+      font: inherit; font-size: .9rem;
+    }
     #rateValue { display: inline-block; min-width: 42px; color: var(--ink); font-variant-numeric: tabular-nums; }
     .intro-list { display: grid; gap: 14px; margin-top: 18px; }
     .section-head { margin-top: 42px; padding-top: 30px; border-top: 1px solid var(--line); }
@@ -71,6 +76,7 @@
       <p class="subtitle">逐段播放英文內容，搭配中文對照練習。</p>
       <div class="toolbar">
         <label for="rate">語速 <input id="rate" type="range" min="0.65" max="1.1" step="0.05" value="0.85"> <span id="rateValue">0.85x</span></label>
+        <label for="voiceSelect">英文聲音 <select id="voiceSelect" aria-label="英文聲音"><option>正在載入男聲...</option></select></label>
         <button id="stopAll" type="button">停止播放</button>
       </div>
     </header>
@@ -179,9 +185,40 @@
   <script>
     const rate = document.querySelector('#rate');
     const rateValue = document.querySelector('#rateValue');
+    const voiceSelect = document.querySelector('#voiceSelect');
     const buttons = [...document.querySelectorAll('.speak')];
+    const preferredMaleNames = [
+      'Aaron', 'Alex', 'Daniel', 'Eddy', 'Fred', 'Gordon', 'Reed', 'Rocko',
+      'Arthur', 'Brian', 'Christopher', 'David', 'Eric', 'George', 'Guy',
+      'James', 'Joey', 'Matthew', 'Michael', 'Roger', 'Ryan', 'Thomas'
+    ];
+    let englishVoices = [];
     let currentButton = null;
     rate.addEventListener('input', () => { rateValue.textContent = `${rate.value}x`; });
+    function maleScore(voice) {
+      const name = voice.name.toLowerCase();
+      const index = preferredMaleNames.findIndex(preferred => name.includes(preferred.toLowerCase()));
+      return index === -1 ? 999 : index;
+    }
+    function loadVoices() {
+      const previous = voiceSelect.value;
+      englishVoices = speechSynthesis.getVoices()
+        .filter(voice => voice.lang.toLowerCase().startsWith('en'))
+        .sort((a, b) => maleScore(a) - maleScore(b) || a.name.localeCompare(b.name));
+      if (!englishVoices.length) {
+        voiceSelect.innerHTML = '<option value="">使用裝置預設英文聲音</option>';
+        return;
+      }
+      voiceSelect.replaceChildren(...englishVoices.map((voice, index) => {
+        const option = document.createElement('option');
+        option.value = voice.voiceURI;
+        option.textContent = `${maleScore(voice) < 999 ? '男聲優先｜' : ''}${voice.name} (${voice.lang})`;
+        if ((previous && previous === voice.voiceURI) || (!previous && index === 0)) option.selected = true;
+        return option;
+      }));
+    }
+    loadVoices();
+    speechSynthesis.addEventListener('voiceschanged', loadVoices);
     function resetButtons() {
       buttons.forEach(button => { button.textContent = '播放這段'; button.setAttribute('aria-pressed', 'false'); });
       currentButton = null;
@@ -195,6 +232,8 @@
         speechSynthesis.cancel(); resetButtons();
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'en-US'; utterance.rate = Number(rate.value); utterance.pitch = 1;
+        const selectedVoice = englishVoices.find(voice => voice.voiceURI === voiceSelect.value);
+        if (selectedVoice) utterance.voice = selectedVoice;
         currentButton = button; button.textContent = '停止播放'; button.setAttribute('aria-pressed', 'true');
         utterance.onend = resetButtons; utterance.onerror = resetButtons;
         speechSynthesis.speak(utterance);
