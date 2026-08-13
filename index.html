@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CK Chiu | English Interview Introduction</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #5f6b76;
+      --line: #dce3e8;
+      --paper: #ffffff;
+      --bg: #f4f7f8;
+      --accent: #176b87;
+      --accent-dark: #0e4e63;
+      --soft: #eaf4f7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", Arial, sans-serif;
+      line-height: 1.65;
+    }
+    main { max-width: 920px; margin: 0 auto; padding: 42px 20px 64px; }
+    header { padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+    .eyebrow { color: var(--accent); font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: 8px 0 4px; font-size: clamp(1.7rem, 4vw, 2.35rem); line-height: 1.2; }
+    .subtitle { margin: 0; color: var(--muted); }
+    .toolbar {
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+      padding: 18px 0 8px;
+    }
+    .toolbar label { color: var(--muted); font-size: .92rem; }
+    input[type="range"] { accent-color: var(--accent); width: 150px; vertical-align: middle; }
+    #rateValue { display: inline-block; min-width: 42px; color: var(--ink); font-variant-numeric: tabular-nums; }
+    .intro-list { display: grid; gap: 14px; margin-top: 18px; }
+    .card {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 8px;
+      padding: 20px 20px 17px; box-shadow: 0 2px 8px rgba(23, 32, 42, .04);
+    }
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+    .number { color: var(--accent); font-size: .8rem; font-weight: 700; letter-spacing: .08em; }
+    .english { margin: 5px 0 11px; font-size: 1.06rem; }
+    .chinese { margin: 0; padding-top: 11px; border-top: 1px solid #edf0f2; color: var(--muted); font-size: .95rem; }
+    button {
+      flex: 0 0 auto; border: 1px solid var(--accent); border-radius: 6px; background: var(--paper);
+      color: var(--accent-dark); cursor: pointer; font: inherit; font-size: .88rem; font-weight: 650;
+      min-width: 86px; padding: 7px 11px; transition: background .15s, color .15s, border-color .15s;
+    }
+    button:hover, button:focus-visible { background: var(--soft); outline: none; }
+    button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+    .note { margin: 22px 0 0; color: var(--muted); font-size: .86rem; }
+    @media (max-width: 560px) {
+      main { padding: 28px 14px 44px; }
+      .card { padding: 16px; }
+      .card-top { display: block; }
+      button { margin-top: 10px; }
+      .english { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">Interview Practice</div>
+      <h1>CK Chiu｜英文自我介紹</h1>
+      <p class="subtitle">逐段播放英文內容，搭配中文對照練習。</p>
+      <div class="toolbar">
+        <label for="rate">語速 <input id="rate" type="range" min="0.65" max="1.1" step="0.05" value="0.85"> <span id="rateValue">0.85x</span></label>
+        <button id="stopAll" type="button">停止播放</button>
+      </div>
+    </header>
+
+    <section class="intro-list" aria-label="英文自我介紹段落">
+      <article class="card">
+        <div class="card-top"><div><div class="number">01</div><p class="english" data-speech="Good morning, my name is CK Chiu. Thank you for giving me this opportunity.">Good morning, my name is CK Chiu. Thank you for giving me this opportunity.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">早安，我是 CK Chiu。謝謝您給我這次面試機會。</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">02</div><p class="english" data-speech="I have more than 20 years of experience in IT, technology architecture, and team management. My background includes manufacturing, online services, cloud platforms, and information security.">I have more than 20 years of experience in IT, technology architecture, and team management. My background includes manufacturing, online services, cloud platforms, and information security.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">我在 IT、技術架構及團隊管理方面有二十多年的經驗。過去的工作經歷涵蓋製造業、線上服務、雲端平台及資訊安全。</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">03</div><p class="english" data-speech="In my previous roles, I managed IT and technology teams across different countries. I was responsible for IT infrastructure, enterprise systems, cloud services, cybersecurity, and digital transformation projects.">In my previous roles, I managed IT and technology teams across different countries. I was responsible for IT infrastructure, enterprise systems, cloud services, cybersecurity, and digital transformation projects.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">在過去的工作中，我曾管理跨國 IT 及技術團隊，負責 IT 基礎架構、企業系統、雲端服務、網路安全及數位轉型專案。</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">04</div><p class="english" data-speech="I have experience working with ERP, MES, WMS, CRM, factory equipment, data platforms, and management dashboards. I also worked with business, research and development, manufacturing, and IT teams to move projects from planning to implementation.">I have experience working with ERP, MES, WMS, CRM, factory equipment, data platforms, and management dashboards. I also worked with business, research and development, manufacturing, and IT teams to move projects from planning to implementation.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">我熟悉 ERP、MES、WMS、CRM、工廠設備、數據平台及管理儀表板等系統。我也曾與業務、研發、製造及 IT 團隊合作，將專案從規劃推進到實際執行。</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">05</div><p class="english" data-speech="One of my main strengths is turning a technology plan into a project that can be executed. I usually start by understanding the business needs. Then I define the system architecture, evaluate the technology, run a proof of concept, and support testing, pilot production, and go-live.">One of my main strengths is turning a technology plan into a project that can be executed. I usually start by understanding the business needs. Then I define the system architecture, evaluate the technology, run a proof of concept, and support testing, pilot production, and go-live.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">我的主要專長之一，是將技術規劃轉化為可以執行的專案。我通常會先了解業務需求，再定義系統架構、評估技術方案、進行概念驗證，並協助測試、試產及正式上線。</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">06</div><p class="english" data-speech="In manufacturing, I helped build a production data platform. We integrated data from production lines, barcode scanners, MES, WMS, equipment, and other systems. The data was used for automation, production tracking, exception monitoring, and management reports.">In manufacturing, I helped build a production data platform. We integrated data from production lines, barcode scanners, MES, WMS, equipment, and other systems. The data was used for automation, production tracking, exception monitoring, and management reports.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">在製造業方面，我曾協助建置生產數據平台，整合產線、條碼掃描器、MES、WMS、設備及其他系統的資料。這些資料應用於自動化、生產追蹤、異常監控及管理報表。</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">07</div><p class="english" data-speech="I also used the same approach to integrate CRM, ERP, and other business systems. We built real-time dashboards to help managers understand production progress, equipment status, inventory, quality issues, and overall business operations.">I also used the same approach to integrate CRM, ERP, and other business systems. We built real-time dashboards to help managers understand production progress, equipment status, inventory, quality issues, and overall business operations.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">我也運用相同的整合方式，串接 CRM、ERP 及其他企業系統，建立即時管理儀表板，協助管理階層掌握生產進度、設備狀況、庫存、品質問題及整體營運情形。</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">08</div><p class="english" data-speech="I am comfortable working with different technical teams and business departments. I can help set up a common architecture, define priorities, and create a clear evaluation process for new technologies and products.">I am comfortable working with different technical teams and business departments. I can help set up a common architecture, define priorities, and create a clear evaluation process for new technologies and products.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">我習慣與不同的技術團隊及業務部門合作。我可以協助建立共同的技術架構、訂定工作優先順序，並為新技術及新產品建立清楚的評估流程。</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">09</div><p class="english" data-speech="Based on my understanding, JYT has strong experience in PC modules, sensing technology, PCBA, optical products, and manufacturing. I believe I can help connect these existing capabilities with data, software, automation, and new technology applications.">Based on my understanding, JYT has strong experience in PC modules, sensing technology, PCBA, optical products, and manufacturing. I believe I can help connect these existing capabilities with data, software, automation, and new technology applications.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">依照我目前的了解，建皇光電在 PC 模組、感測技術、PCBA、光學產品及製造方面都有良好的基礎。我相信自己可以協助將這些既有能力，與數據、軟體、自動化及新技術應用結合起來。</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">10</div><p class="english" data-speech="I am not an expert in every technology area, but I am experienced in organizing experts, connecting different teams, and making projects move forward. I hope to use my experience to support JYT's technology roadmap and help turn new ideas into tested and practical products.">I am not an expert in every technology area, but I am experienced in organizing experts, connecting different teams, and making projects move forward. I hope to use my experience to support JYT's technology roadmap and help turn new ideas into tested and practical products.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">我不可能是每個技術領域的專家，但我有組織專業人才、整合不同團隊及推動專案進展的經驗。我希望運用過去的經驗，協助建皇光電建立技術發展藍圖，並將新的想法轉化為經過驗證、可以實際應用的產品。</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><div><div class="number">11</div><p class="english" data-speech="Thank you.">Thank you.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">謝謝您。</p>
+      </article>
+    </section>
+    <p class="note">播放功能使用瀏覽器內建語音合成。若沒有聲音，請確認裝置音量及瀏覽器的語音服務設定。</p>
+  </main>
+  <script>
+    const rate = document.querySelector('#rate');
+    const rateValue = document.querySelector('#rateValue');
+    const buttons = [...document.querySelectorAll('.speak')];
+    let currentButton = null;
+    rate.addEventListener('input', () => { rateValue.textContent = `${rate.value}x`; });
+    function resetButtons() {
+      buttons.forEach(button => { button.textContent = '播放這段'; button.setAttribute('aria-pressed', 'false'); });
+      currentButton = null;
+    }
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const text = button.previousElementSibling.querySelector('.english').dataset.speech;
+        if (currentButton === button && speechSynthesis.speaking) {
+          speechSynthesis.cancel(); resetButtons(); return;
+        }
+        speechSynthesis.cancel(); resetButtons();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US'; utterance.rate = Number(rate.value); utterance.pitch = 1;
+        currentButton = button; button.textContent = '停止播放'; button.setAttribute('aria-pressed', 'true');
+        utterance.onend = resetButtons; utterance.onerror = resetButtons;
+        speechSynthesis.speak(utterance);
+      });
+    });
+    document.querySelector('#stopAll').addEventListener('click', () => { speechSynthesis.cancel(); resetButtons(); });
+    window.addEventListener('beforeunload', () => speechSynthesis.cancel());
+  </script>
+</body>
+</html>
