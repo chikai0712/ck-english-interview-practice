@@ -27,6 +27,7 @@
     header { padding: 0 0 24px; border-bottom: 1px solid var(--line); }
     .eyebrow { color: var(--accent); font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
     h1 { margin: 8px 0 4px; font-size: clamp(1.7rem, 4vw, 2.35rem); line-height: 1.2; }
+    h2 { margin: 6px 0 5px; font-size: clamp(1.35rem, 3vw, 1.8rem); line-height: 1.25; }
     .subtitle { margin: 0; color: var(--muted); }
     .toolbar {
       display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
@@ -36,6 +37,7 @@
     input[type="range"] { accent-color: var(--accent); width: 150px; vertical-align: middle; }
     #rateValue { display: inline-block; min-width: 42px; color: var(--ink); font-variant-numeric: tabular-nums; }
     .intro-list { display: grid; gap: 14px; margin-top: 18px; }
+    .section-head { margin-top: 42px; padding-top: 30px; border-top: 1px solid var(--line); }
     .card {
       background: var(--paper); border: 1px solid var(--line); border-radius: 8px;
       padding: 20px 20px 17px; box-shadow: 0 2px 8px rgba(23, 32, 42, .04);
@@ -117,6 +119,59 @@
       <article class="card">
         <div class="card-top"><div><div class="number">11</div><p class="english" data-speech="Thank you.">Thank you.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
         <p class="chinese">謝謝您。</p>
+      </article>
+    </section>
+
+    <section class="section-head" aria-labelledby="technical-summary-title">
+      <div class="eyebrow">Technical Experience</div>
+      <h2 id="technical-summary-title">技術經歷摘要</h2>
+      <p class="subtitle">以簡單英文整理主要技術能力與實際經驗。</p>
+    </section>
+
+    <section class="intro-list" aria-label="技術經歷摘要段落">
+      <article class="card">
+        <div class="card-top"><div><div class="number">TECH 01｜技術領導</div><p class="english" data-speech="I have more than 20 years of experience in IT and technology management. I have led teams in manufacturing, online services, cloud platforms, and cybersecurity. I can work with both management and technical teams, and I am also comfortable joining architecture reviews and problem-solving discussions.">I have more than 20 years of experience in IT and technology management. I have led teams in manufacturing, online services, cloud platforms, and cybersecurity. I can work with both management and technical teams, and I am also comfortable joining architecture reviews and problem-solving discussions.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">我在 IT 與技術管理方面有二十多年的經驗，曾帶領製造業、線上服務、雲端平台及資訊安全團隊。我能與管理階層及技術團隊合作，也可以實際參與架構審查與問題分析。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><div><div class="number">TECH 02｜製造系統整合</div><p class="english" data-speech="I have experience integrating ERP, CRM, MES, WMS, QMS, factory equipment, and warehouse systems. I used APIs, data pipelines, and event streaming to connect different systems. This helped the company reduce manual work and gave managers a clearer view of production and business operations.">I have experience integrating ERP, CRM, MES, WMS, QMS, factory equipment, and warehouse systems. I used APIs, data pipelines, and event streaming to connect different systems. This helped the company reduce manual work and gave managers a clearer view of production and business operations.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">我具備 ERP、CRM、MES、WMS、QMS、工廠設備及倉庫系統的整合經驗，並運用 API、資料管線及事件串流連接不同系統。這些整合降低了人工處理，也讓管理階層更清楚掌握生產與營運狀況。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><div><div class="number">TECH 03｜數據平台與儀表板</div><p class="english" data-speech="I helped build a data platform that collected information from production lines, barcode scanners, MES, ERP, equipment, and business systems. We used Kafka, data integration tools, and business intelligence dashboards. Managers could check production progress, work in process, inventory, equipment status, quality issues, and delivery risks in one place.">I helped build a data platform that collected information from production lines, barcode scanners, MES, ERP, equipment, and business systems. We used Kafka, data integration tools, and business intelligence dashboards. Managers could check production progress, work in process, inventory, equipment status, quality issues, and delivery risks in one place.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">我曾協助建置數據平台，收集產線、條碼掃描器、MES、ERP、設備及企業系統的資訊，並運用 Kafka、資料整合工具及 BI 儀表板。管理階層可以在同一平台查看生產進度、在製品、庫存、設備狀態、品質問題及交期風險。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><div><div class="number">TECH 04｜智慧工廠與 IT/OT</div><p class="english" data-speech="For smart factory projects, I worked on IT and OT integration, equipment data collection, industrial networks, access control, and system monitoring. I am familiar with technologies such as edge gateways, O P C U A, Modbus T C P, and M Q T T. I also understand that factory changes must be carefully planned because production stability is the first priority.">For smart factory projects, I worked on IT and OT integration, equipment data collection, industrial networks, access control, and system monitoring. I am familiar with technologies such as Edge Gateways, OPC UA, Modbus TCP, and MQTT. I also understand that factory changes must be carefully planned because production stability is the first priority.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">在智慧工廠專案中，我參與 IT 與 OT 整合、設備資料採集、工業網路、門禁及系統監控，也熟悉 Edge Gateway、OPC UA、Modbus TCP 與 MQTT 等技術。我了解工廠變更必須審慎規劃，因為維持生產穩定是首要考量。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><div><div class="number">TECH 05｜雲端與基礎架構</div><p class="english" data-speech="I have hands-on experience with A W S, G C P, data centers, enterprise networks, virtualization, storage, backup, and disaster recovery. I have managed systems across different countries and supported high-availability services. My work includes architecture design, capacity planning, monitoring, cost control, and recovery testing.">I have hands-on experience with AWS, GCP, data centers, enterprise networks, virtualization, storage, backup, and disaster recovery. I have managed systems across different countries and supported high-availability services. My work includes architecture design, capacity planning, monitoring, cost control, and recovery testing.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">我具備 AWS、GCP、資料中心、企業網路、虛擬化、儲存、備份及災難復原的實務經驗，曾管理跨國系統並支援高可用性服務。工作範圍包含架構設計、容量規劃、監控、成本控制及復原測試。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><div><div class="number">TECH 06｜DevOps 與 SRE</div><p class="english" data-speech="I built DevOps processes for continuous integration, continuous delivery, infrastructure as code, GitOps, monitoring, and incident response. These changes reduced deployment time and made system changes easier to review and track. By improving monitoring and runbooks, we also reduced the time needed to find and fix system problems.">I built DevOps processes for continuous integration, continuous delivery, infrastructure as code, GitOps, monitoring, and incident response. These changes reduced deployment time and made system changes easier to review and track. By improving monitoring and runbooks, we also reduced the time needed to find and fix system problems.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">我建立過持續整合、持續交付、基礎架構即程式碼、GitOps、監控及事件處理等 DevOps 流程。這些改善縮短了部署時間，也讓系統變更更容易審查與追蹤；透過監控與 Runbook，也降低了發現及修復問題所需的時間。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><div><div class="number">TECH 07｜資訊安全治理</div><p class="english" data-speech="In cybersecurity, I have experience with I S O twenty-seven thousand and one, access control, security monitoring, vulnerability management, and incident response. I have worked with W A F, E D R, S I E M, cloud security, and security testing. My focus is to include security in daily operations and system design, instead of checking it only before go-live.">In cybersecurity, I have experience with ISO 27001, access control, security monitoring, vulnerability management, and incident response. I have worked with WAF, EDR, SIEM, cloud security, and security testing. My focus is to include security in daily operations and system design, instead of checking it only before go-live.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">在資訊安全方面，我具備 ISO 27001、存取控制、安全監控、弱點管理及事件應變經驗，也接觸過 WAF、EDR、SIEM、雲端安全及安全測試。我的重點是將安全納入日常營運與系統設計，而不是只在正式上線前檢查。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><div><div class="number">TECH 08｜大型線上服務</div><p class="english" data-speech="I also have experience supporting large online services. I managed infrastructure for online games with more than one hundred and seventy thousand concurrent users. This experience taught me how to plan for high traffic, service availability, monitoring, backup, disaster recovery, and fast incident response.">I also have experience supporting large online services. I managed infrastructure for online games with more than 170,000 concurrent users. This experience taught me how to plan for high traffic, service availability, monitoring, backup, disaster recovery, and fast incident response.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">我也具備大型線上服務的維運經驗，曾管理支援超過十七萬名同時在線玩家的遊戲基礎架構。這段經驗讓我熟悉高流量、服務可用性、監控、備份、災難復原及快速事件應變的規劃。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top"><div><div class="number">TECH 09｜跨部門落地</div><p class="english" data-speech="My role is often to connect business needs with technical work. I work with business, research and development, manufacturing, quality, and IT teams. I help define priorities, review technical options, run a proof of concept, manage risks, and move the project from planning to testing and go-live.">My role is often to connect business needs with technical work. I work with business, research and development, manufacturing, quality, and IT teams. I help define priorities, review technical options, run a proof of concept, manage risks, and move the project from planning to testing and go-live.</p></div><button class="speak" type="button" aria-pressed="false">播放這段</button></div>
+        <p class="chinese">我的角色經常是連接業務需求與技術執行，與業務、研發、製造、品質及 IT 團隊合作。我會協助排定優先順序、審查技術方案、進行概念驗證、管理風險，並將專案從規劃推進到測試及正式上線。</p>
       </article>
     </section>
     <p class="note">播放功能使用瀏覽器內建語音合成。若沒有聲音，請確認裝置音量及瀏覽器的語音服務設定。</p>
