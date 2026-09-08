@@ -1,12 +1,13 @@
-以下我把整份統一成完整的 **STAR 中英逐段對照 + 英文跟讀格式**。你可以直接從第 1 題一路練到第 10 題。
+好，既然你選 **A**，我就把剛才建議的數據視為你已確認，直接整合進正式版本。下面這版會把 `〔請確認〕` 全部拿掉，並統一成可以直接練習的 Amazon DCOM Interview Workbook。
 
-# Amazon Data Center Operations Manager 面試回答
+# Amazon Data Center Operations Manager Interview Workbook
 
-## TOEIC 約 600 分｜STAR 逐段中英對照｜英文跟讀版
+## TOEIC 約 600 分｜STAR + Options/Decision + 中英對照跟讀版
 
-> `/` = 短停頓約 0.3～0.5 秒
-> **粗體** = 面試時建議稍微加重語氣
-> 建議語速：每分鐘約 100～120 字
+> `/` = 短停頓約 0.3–0.5 秒
+> **粗體** = 建議面試時稍微加重
+> 建議主回答：約 2–3 分鐘
+> 核心原則：**WHY → I → DATA → RESULT → LEARNING**
 
 ---
 
@@ -14,264 +15,440 @@
 
 ### 請分享一次你主動承擔重大問題的經驗。
 
-**Leadership Principles：Ownership / Bias for Action / Deliver Results**
+**Primary LP：Ownership**
+**Secondary LP：Bias for Action / Dive Deep / Deliver Results / Customer Obsession**
 
 ## S — Situation｜情境
 
 **中文：**
-我曾經負責一個需要 24 小時運作的 IT 環境。有一次，系統發生嚴重異常，影響多個服務，約有 30% 的內部使用者無法正常使用系統。雖然問題不完全屬於我的團隊，但我認為恢復服務、保護系統可用性，以及安全地處理 Incident 是最重要的事情。
+我曾經負責一個需要 24x7 運作的 IT 環境。有一次發生重大系統異常，同時影響 3 到 5 個重要服務，大約 20% 到 30% 的使用者受到影響。
+
+一開始，我們無法確認問題是在 Network、System 還是 Application，但服務影響持續擴大。
+
+我的想法是，對使用者而言，他們不在意問題到底是哪一個 Team 負責，他們只在意服務什麼時候恢復。
 
 **English｜跟讀版：**
 
-I was responsible for an IT environment /
-that needed to run **24 hours a day**.
+I was responsible for /
+a **24x7 IT environment**.
 
 One time, /
-we had a serious system problem.
+we had a major system incident.
 
-Several services were affected, /
-and about **30% of internal users** /
-could not use the system normally.
+It affected /
+about **three to five important services**, /
+and around **20 to 30 percent of users** /
+were impacted.
 
-The problem was not fully owned by my team, /
-but I believed **restoring the service** /
-was the first priority.
+At the beginning, /
+we did not know /
+whether the problem came from Network, /
+System, /
+or Application.
 
-I also wanted to protect availability /
-and manage the incident safely.
+But the service impact /
+was getting worse.
+
+From the user’s point of view, /
+it did not matter /
+which team owned the problem.
+
+They needed the service /
+to be restored.
 
 ---
 
 ## T — Task｜任務
 
 **中文：**
-我的任務是快速確認影響範圍、協調相關團隊，並在風險可控的情況下恢復服務。同時，我也需要確保所有決策、處理步驟和溝通內容都有清楚紀錄，方便後續進行 RCA 和流程改善。
+我的責任是快速確認 Business Impact、建立 Incident Command、協調所有技術團隊，並在控制風險的情況下盡快恢復服務。
 
-**English｜跟讀版：**
+同時，我必須避免因為急著恢復服務，而造成 Data Loss、Security Risk 或更大的 Production Impact。
 
-My task was to understand the impact quickly /
-and coordinate the right teams.
+**English：**
+
+My task was /
+to understand the business impact quickly, /
+create one incident command point, /
+and coordinate all technical teams.
 
 I needed to restore the service /
-with **controlled risk**.
+as quickly as possible, /
+but with **controlled risk**.
 
-I also needed to keep clear records /
-of our decisions, actions, and communication.
+I also needed to make sure /
+our recovery action /
+would not cause data loss, /
+security risk, /
+or a larger Production impact.
 
-These records were important /
-for the later Root Cause Analysis /
-and process improvement.
+---
+
+## O — Options / Trade-off｜選項與取捨
+
+**中文：**
+當時有三個選擇。
+
+第一是繼續調查，直到完全確認 Root Cause。這個方式技術風險較低，但 Outage 可能持續更久。
+
+第二是 Failover 到 Backup Environment，但必須先確認 Backup Status 和 Data Synchronization。
+
+第三是 Rollback 最近的 Change。這個方案是可逆的，而且我們已經有測試過的 Rollback Plan。
+
+**English：**
+
+At that time, /
+I had three main options.
+
+The first option /
+was to continue the investigation /
+until we fully understood /
+the root cause.
+
+This had lower technical risk, /
+but the outage could continue longer.
+
+The second option /
+was to fail over /
+to the backup environment.
+
+But we first needed /
+to confirm the backup status /
+and data synchronization.
+
+The third option /
+was to roll back /
+the most recent change.
+
+The rollback was **reversible**, /
+and we already had /
+a tested rollback plan.
+
+---
+
+## D — Decision｜決策
+
+**中文：**
+因為問題開始時間與最近一項 Change 高度相關，而且 Rollback 已經測試過，所以我決定先 Rollback。
+
+原因很簡單：在當時的條件下，這是速度最快、風險較低，而且可以逆轉的方案。
+
+**English：**
+
+The data showed /
+that the incident started /
+soon after a recent change.
+
+We also had /
+a tested rollback plan.
+
+So I decided /
+to perform the rollback.
+
+I chose this option /
+because it was the fastest, /
+lowest-risk, /
+and most reversible solution.
 
 ---
 
 ## A — Action｜行動
 
 **中文：**
-我主動建立 Incident Bridge，邀請 Network、System、Application 和 Vendor 團隊加入。我先確認影響範圍，再把調查工作分開，讓工程師平行檢查 Monitoring、Log、Network Traffic 和 Change Record。
+我主動建立 Incident Bridge，召集 Network、System、Application 和 Vendor Team。
 
-當我們發現最近的一項 Change 可能是原因後，我沒有立刻要求 Rollback，而是先確認 Rollback Plan、資料保護和可能風險。確認安全之後才執行回復。
+我先要求確認受影響服務、使用者、Business Impact、Security Risk 和 Data Risk。
 
-Incident 期間，我每 30 分鐘向管理層更新一次影響、處理進度、風險和下一步。服務恢復後，我帶領團隊完成 RCA，並改善 SOP、Monitoring Alert 和 Change Review。
+接著把 Investigation 拆成不同 Workstream，讓不同 Engineer 同時檢查 Monitoring Data、Log、Network Traffic 和 Change Record。
 
-**English｜跟讀版：**
+Rollback 前，我再次確認 Backup、Rollback Command、Data Status、Owner 和 Validation Step。
+
+Incident 期間，我固定向 Management 更新 Impact、Risk、Progress 和 Next Action。
+
+服務恢復後，我帶領團隊完成初步 RCA，並在 3 到 5 個工作天內完成正式 RCA，同時更新 Monitoring Alert、SOP、Change Review 和 Corrective Action。
+
+**English：**
 
 I took ownership /
 and created an **Incident Bridge**.
 
-I invited the Network, System, Application, /
+I invited the Network, /
+System, /
+Application, /
 and Vendor teams.
 
 First, /
 I asked the teams to confirm /
 the affected services, /
-the number of users, /
-and the start time.
+users, /
+business impact, /
+security risk, /
+and data risk.
 
 Then, /
 I divided the investigation /
-into different areas.
+into different workstreams.
 
-Some engineers checked monitoring data. /
-Some checked logs.
+Different engineers checked /
+monitoring data, /
+logs, /
+network traffic, /
+and recent change records /
+at the same time.
 
-Others checked network traffic /
-and recent change records.
-
-When we found that a recent change /
-could be the cause, /
-I did not roll it back immediately.
-
-First, /
-I asked the team to confirm /
-the **rollback plan**, /
-data protection, /
-and possible risks.
-
-After we confirmed it was safe, /
-we started the rollback.
+Before the rollback, /
+I confirmed /
+the backup, /
+rollback commands, /
+data status, /
+owners, /
+and validation steps.
 
 During the incident, /
-I gave management an update /
-every **30 minutes**.
+I gave regular updates /
+to management.
 
-After the service was restored, /
-I led the Root Cause Analysis.
+After recovery, /
+I led the initial RCA /
+within 24 hours.
 
-We updated the SOP, /
-monitoring alerts, /
-and change review process.
+We completed /
+the formal RCA /
+within three to five business days.
 
 ---
 
 ## R — Result｜結果
 
 **中文：**
-我們在 45 分鐘內恢復主要服務，並在 24 小時內完成初步 RCA。後續三個月沒有再發生相同問題，相關 Change Failure Rate 下降約 30%。
+我們在大約 45 到 60 分鐘內恢復主要服務，而且沒有發生 Data Loss。
 
-這個經驗讓我學到，重大 Incident 發生時，Manager 必須主動承擔責任，在資訊不完整的情況下，也要快速做出安全而合理的決定。
+初步 RCA 在 24 小時內完成，後續三個月沒有再發生相同類型問題。
 
-**English｜跟讀版：**
+**English：**
 
-We restored the main services /
-within **45 minutes**.
+We restored /
+the main services /
+within about **45 to 60 minutes**.
 
-We completed the first RCA /
+There was **no data loss**.
+
+We completed /
+the initial RCA /
 within **24 hours**.
 
-We did not see the same problem again /
-for the next three months.
+For the next three months, /
+we did not see /
+the same type of incident again.
 
-The related change failure rate /
-also decreased by about **30%**.
+---
 
-This experience taught me /
-that during a major incident, /
-a manager should not just wait.
+## L — Learning｜學習
 
-I need to **take ownership**, /
-coordinate resources, /
-and make a safe and reasonable decision.
+**中文：**
+我學到 Ownership 並不是所有事情都自己做，而是即使問題跨越多個 Team，我仍然要對 Final Service Result 負責。
+
+如果再遇到類似 Incident，我會更早建立 Incident Commander、Timeline 和 Decision Log。
+
+**English：**
+
+I learned /
+that Ownership does not mean /
+doing everything by myself.
+
+It means /
+I am responsible /
+for the final service result, /
+even when the problem /
+crosses several teams.
+
+If I faced /
+the same type of incident again, /
+I would create /
+the incident command, /
+timeline, /
+and decision log /
+even earlier.
+
+### Amazon 可能追問
+
+* How did you know rollback was the right decision?
+* What would you have done if rollback failed?
+* How did you communicate with management?
+* What did you personally do?
+* How did you prevent recurrence?
 
 ---
 
 # 2. Tell me about a time you had to dive deep into a technical problem.
 
-### 請分享一次你深入技術細節解決問題的經驗。
+### 請分享一次你深入技術問題的經驗。
 
-**Leadership Principles：Dive Deep / Are Right, A Lot**
+**Primary LP：Dive Deep**
+**Secondary：Are Right, A Lot / Highest Standards**
 
-## S — Situation｜情境
+## S — Situation
 
 **中文：**
-我們曾經發現一個重要系統在尖峰時間偶爾變慢。問題每天大約發生兩到三次，每次持續 10 到 15 分鐘。CPU 和 Memory 使用率都正常，因此只看 Dashboard 找不到真正原因。
+我們有一個重要服務在 Peak Hours 會間歇性變慢，每天約發生 2 到 3 次，每次大約持續 10 到 15 分鐘。
 
-**English｜跟讀版：**
+但 CPU、Memory 和一般 Infrastructure Metrics 看起來都正常。
 
-We found that an important system /
-sometimes became slow /
-during **peak hours**.
+**English：**
+
+We had /
+an important service /
+that sometimes became slow /
+during peak hours.
 
 The problem happened /
-about two or three times a day.
+about **two or three times a day**.
 
 Each event lasted /
-around **10 to 15 minutes**.
+about **10 to 15 minutes**.
 
-CPU and memory usage looked normal, /
-so the dashboard did not show /
-the real cause.
+CPU, /
+memory, /
+and normal infrastructure metrics /
+all looked healthy.
 
 ---
 
-## T — Task｜任務
+## T — Task
 
 **中文：**
-我的任務是帶領團隊找出真正的 Root Cause，而不是只增加 Server 資源或重新啟動服務。我也需要確認解決方案不會造成新的 Availability、Capacity 或 Operational Risk。
+我要找出真正 Root Cause，而不是簡單增加 Server Capacity 或 Restart Service。
 
-**English｜跟讀版：**
+**English：**
 
-My task was to help the team /
-find the **real root cause**.
+My task was /
+to help the team find /
+the **real root cause**.
 
-I did not want the team /
-to only add more server resources /
+I did not want /
+to simply add more servers /
 or restart the service.
 
-I also needed to make sure /
-our solution would not create /
-new availability, capacity, /
-or operational risks.
+---
+
+## O / D — Options & Decision
+
+**中文：**
+我們可以增加 CPU / Memory、Restart Service，或深入分析 Application、Network 和 Database Dependency。
+
+前兩個方法可能暫時改善，但無法證明 Root Cause。
+
+所以我決定 Dive Deep。
+
+**English：**
+
+We could add /
+more CPU and memory.
+
+We could restart /
+the service.
+
+Or, /
+we could analyze /
+the Application, Network, /
+and Database dependencies /
+in more detail.
+
+The first two options /
+were faster, /
+but they did not prove /
+the root cause.
+
+So I chose /
+to **Dive Deep**.
 
 ---
 
-## A — Action｜行動
+## A — Action
 
 **中文：**
-我先要求團隊整理問題發生的確切時間，再把 Application Log、Network Traffic、Database Connection 和 Monitoring Data 放在同一時間軸比較。
+我要求團隊建立統一 Timeline，把 Application Log、Network Traffic、Database Connection、Monitoring Data 放在一起比較。
 
-接著，我請工程師檢查 Connection Pool、Timeout Setting 和 Database Query。我們最後發現部分 Connection 在尖峰時段沒有正常釋放。
+再深入分析 Connection Pool、Timeout、Query 和 Traffic Pattern。
 
-我要求先在測試環境重現問題，再調整 Connection Pool 和 Timeout Setting，同時增加 Connection Usage 和 Failed Request Alert。
+最後發現部分 Connection 在 Peak Traffic 沒有正常釋放。
 
-**English｜跟讀版：**
+我們先在 Test Environment 重現問題，再調整 Connection Pool 和 Timeout，並增加 Connection Usage 和 Failed Request Alert。
+
+**English：**
 
 First, /
-I asked the team to record /
-the exact time of every problem.
+I asked the team /
+to build one timeline.
 
-Then, /
-we compared application logs, /
+We compared /
+application logs, /
 network traffic, /
 database connections, /
-and monitoring data /
-on the same timeline.
+and monitoring data.
 
-I also asked the engineers /
-to check the connection pool, /
+Then, /
+we checked /
+connection pools, /
 timeout settings, /
-and database queries.
+database queries, /
+and traffic patterns.
 
-After several checks, /
-we found that some connections /
-were not released correctly.
+We found /
+that some connections /
+were not released correctly /
+during peak traffic.
 
-I asked the team /
-to reproduce the problem /
-in a test environment first.
+Before changing Production, /
+we reproduced the problem /
+in a test environment.
 
-After that, /
-we changed the connection pool /
-and timeout settings.
-
-I also added new alerts /
-for connection usage /
-and failed requests.
+Then, /
+we adjusted the settings /
+and added new alerts.
 
 ---
 
-## R — Result｜結果
+## R — Result
 
 **中文：**
-調整後，系統在尖峰時間沒有再出現相同延遲。相關 Incident 從每週約 10 件下降到每週 1 件以下，平均 Response Time 改善約 40%。
+改善前約每天會發生 2 到 3 次異常，後來降低到每週 1 次以下。
 
-**English｜跟讀版：**
+Average Response Time 約改善 30% 到 40%。
+
+**English：**
+
+Before the improvement, /
+the issue happened /
+about two or three times /
+every day.
 
 After the change, /
-the system did not have /
-the same delay during peak hours.
-
-Related incidents decreased /
-from about **10 per week** /
-to less than **one per week**.
+it dropped /
+to less than **one incident per week**.
 
 Average response time /
-also improved by about **40%**.
+also improved /
+by about **30 to 40 percent**.
 
-This experience taught me /
-that a manager should understand /
-the data and technical details /
+---
+
+## L — Learning
+
+**中文：**
+Manager 不需要自己完成所有 Troubleshooting，但一定要能深入到足以挑戰假設、理解數據，並確認團隊真的找到 Root Cause。
+
+**English：**
+
+A manager does not need /
+to do all technical work.
+
+But I need /
+to understand the technical details /
 deeply enough /
-to ask the right questions.
+to challenge assumptions, /
+understand the data, /
+and confirm the real root cause.
 
 ---
 
@@ -279,1166 +456,1426 @@ to ask the right questions.
 
 ### 請分享一次你改善或簡化流程的經驗。
 
-**Leadership Principles：Invent and Simplify / Insist on the Highest Standards**
+**Primary LP：Invent and Simplify**
+**Secondary：Highest Standards / Frugality / Ownership**
 
-## S — Situation｜情境
+## S
 
 **中文：**
-在管理多個地點的 IT Infrastructure 時，我發現不同地點的 Network Device 設定不一致，而且很多變更都是工程師手動完成，因此容易產生 Human Error，也難以追蹤 Change History。
+我管理多地 Infrastructure 時，發現 Network Device Configuration 不一致，而且很多 Change 是 Engineer 手動直接登入設備完成。
 
-**English｜跟讀版：**
+**English：**
 
-When I managed IT infrastructure /
-in several locations, /
-I found that network device settings /
-were different between sites.
+When I managed /
+IT infrastructure /
+across several locations, /
+I found that network configurations /
+were not standardized.
 
-Many changes /
-were also done manually.
-
-This could cause **human errors**, /
-and it was difficult to track /
-who changed what and when.
+Many engineers /
+made changes manually /
+by logging directly /
+into network devices.
 
 ---
 
-## T — Task｜任務
+## T
 
 **中文：**
-我的任務是建立標準、可追蹤而且可以擴展的 Configuration Management 流程，同時提升 Change Quality、Security 和服務穩定性。
+我要建立標準化、可追蹤、可稽核、可以 Rollback，而且能 Scale 的 Configuration Management。
 
-**English｜跟讀版：**
+**English：**
 
-My task was to create /
-a standard and traceable /
-configuration management process.
-
-The process also needed /
-to support more devices /
-in the future.
-
-I wanted to improve /
-change quality, /
-security, /
-and service stability.
+My task was /
+to create a process /
+that was standardized, /
+traceable, /
+auditable, /
+reversible, /
+and scalable.
 
 ---
 
-## A — Action｜行動
+## O / D
 
 **中文：**
-我先盤點所有 Network Device，整理各地點設定差異。接著使用 Git 管理 Network Configuration、建立 Standard Template，並使用 Ansible 自動檢查設定。
+選項包括購買 Commercial Platform、繼續人工操作，或利用 Git + Ansible。
 
-我也重新設計 Change Process，工程師需要 Peer Review 和 Approval 才能執行變更，而且每次 Change 都必須保留 Version、Audit Record 和 Rollback Plan。
+考量 Cost、既有 Skill 和導入速度，我決定採用 Git + Ansible。
 
-為降低風險，我先從 10 台設備做 Pilot，確認穩定後，再逐步擴大。
+**English：**
 
-**English｜跟讀版：**
+We could buy /
+a commercial management platform.
+
+We could continue /
+with manual operations.
+
+Or, /
+we could use /
+our existing Git /
+and Ansible skills.
+
+I selected /
+Git and Ansible /
+because it was lower cost, /
+faster to implement, /
+and easier for the team /
+to maintain.
+
+---
+
+## A
+
+**中文：**
+我先完成 Device Inventory 和 Configuration Baseline，再建立 Standard Template，將 Configuration 放入 Git。
+
+接著使用 Ansible 自動檢查設定。
+
+新的 Change 必須經過 Review、Approval、Version Control 和 Rollback Plan。
+
+我們先 Pilot，再逐步擴大到：
+
+* Astro：約 40 台
+* Axiom：約 30 台
+* Unition：約 30 台
+
+合計約 **100 台 Network Devices**。
+
+**English：**
 
 First, /
-I reviewed all network devices.
+I created /
+a device inventory /
+and configuration baseline.
+
+We built /
+standard templates /
+and stored configurations /
+in Git.
 
 Then, /
-I proposed using **Git** /
-to manage network configurations.
+we used Ansible /
+to automatically check /
+device configurations.
 
-We created standard templates /
-and used **Ansible** /
-to check settings automatically.
-
-I also changed /
-the change management process.
-
-Engineers needed /
-a peer review and approval /
-before making a change.
-
-Every change had /
-a version, /
-an audit record, /
+Every change needed /
+review, /
+approval, /
+version control, /
 and a rollback plan.
 
-To reduce risk, /
-I started with a pilot /
-on **10 devices**.
-
-After the pilot was stable, /
-we expanded the process /
-step by step.
+We started small /
+and later expanded /
+the process /
+to about **100 network devices**.
 
 ---
 
-## R — Result｜結果
+## R
 
 **中文：**
-最後約 100 台 Network Device 納入這套流程。設定錯誤下降約 60%，Change Review 時間縮短約 40%，每一次變更都可以被追蹤和 Rollback。
+Configuration Error 約下降 50% 到 60%，Change Review Time 約改善 30% 到 40%。
 
-**English｜跟讀版：**
+更重要的是，每一個 Change 都可以 Trace、Review 和 Rollback。
 
-In the end, /
-we included about **100 network devices** /
-in the new process.
+**English：**
 
-Configuration errors decreased /
-by about **60%**.
+Configuration errors /
+decreased /
+by about **50 to 60 percent**.
 
-Change review time decreased /
-by about **40%**.
+Change review time /
+improved /
+by about **30 to 40 percent**.
 
-Every change /
-could also be tracked /
-and rolled back.
-
-This experience taught me /
-that automation is not only /
-about saving time.
-
-It is also about /
-reducing human error /
-and building a process /
-that is standard and scalable.
+More importantly, /
+every change /
+became traceable, /
+reviewable, /
+and reversible.
 
 ---
 
-# 4. Tell me about a time you improved operational quality.
-
-### 請分享一次你提升營運品質的經驗。
-
-**Leadership Principles：Insist on the Highest Standards / Deliver Results**
-
-## S — Situation｜情境
+## L
 
 **中文：**
-我以前管理 Infrastructure 和 IT Operations 時，發現工程師通常可以快速解決 Incident，但同類型問題會重複發生。當時團隊比較重視 Ticket Closure，卻沒有系統性追蹤 Repeated Incident 和 Root Cause。
+我學到 Invent and Simplify 不一定是創造新的 Technology，很多時候是用簡單的方式消除不必要的 Complexity。
 
-**English｜跟讀版：**
+**English：**
 
-When I managed Infrastructure /
-and IT Operations, /
-the engineers could usually /
-solve incidents quickly.
+I learned /
+that Invent and Simplify /
+does not always mean /
+creating new technology.
+
+Sometimes, /
+the best solution /
+is using simple tools /
+to remove unnecessary complexity.
+
+---
+
+# 4. Tell me about a time you raised operational standards.
+
+**Primary LP：Insist on the Highest Standards**
+**Secondary：Deliver Results / Dive Deep**
+
+## S
+
+**中文：**
+團隊以前很快可以 Close Ticket，但一些 Incident 一直重複發生。我發現 KPI 太偏向「Ticket 是否關閉」，而不是「Problem 是否真正解決」。
+
+**English：**
+
+The team could close incidents /
+quite quickly.
 
 However, /
-the same types of problems /
-happened again and again.
+some of the same problems /
+kept coming back.
 
-At that time, /
-we focused more /
-on closing tickets.
-
-We did not have /
-a clear process /
-to track repeated incidents /
-and root causes.
+The team focused /
+more on closing tickets /
+than permanently fixing /
+the problem.
 
 ---
 
-## T — Task｜任務
+## T
 
 **中文：**
-我的任務是讓團隊從單純處理 Incident，轉變成主動改善 Service Reliability，並建立可以量化的 Operational Quality 指標。
+我要把團隊從 Reactive Incident Handling，轉成 Proactive Reliability Improvement。
 
-**English｜跟讀版：**
+**English：**
 
-My task was to move the team /
-from only fixing incidents /
-to improving **service reliability**.
-
-I also wanted to create /
-clear and measurable /
-operational quality metrics.
+My task was /
+to move the team /
+from reactive incident handling /
+to proactive /
+reliability improvement.
 
 ---
 
-## A — Action｜行動
+## O / D
 
 **中文：**
-我建立每月 Operations Review，開始追蹤 Repeated Incident、MTTR、Change Failure、SLA 和 Availability。
+增加 On-call 人力可以更快解 Ticket，但沒有解決 Root Cause。
 
-我要求所有 Sev-1，以及重複出現的 Sev-2 Incident，都必須完成 RCA。每一項 Follow-up Action 都需要 Owner 和 Due Date。
+所以我決定導入 Problem Management、RCA、Corrective Action Tracking。
 
-改善措施可能包括增加 Monitoring、更新 SOP、Automation 或修改 System Architecture。
+**English：**
 
-我每週追蹤改善進度，並在月會確認這些改善是否真的降低 Incident。
+One option /
+was to add more people /
+to respond faster.
 
-**English｜跟讀版：**
+But this would only help us /
+fix the same problems faster.
 
-First, /
-I created a monthly /
-**Operations Review**.
+I decided /
+to focus on /
+Problem Management, /
+Root Cause Analysis, /
+and prevention.
+
+---
+
+## A
+
+**中文：**
+我建立 Monthly Operations Review，追蹤 Availability、MTTR、Repeated Incident、Change Failure、SLA。
+
+Major Incident 必須完成 RCA。
+
+每個 Corrective Action 都有 Owner、Due Date、Validation。
+
+**English：**
+
+I created /
+a monthly Operations Review.
 
 We tracked /
-repeated incidents, /
+availability, /
 MTTR, /
+repeated incidents, /
 change failures, /
-SLA, /
-and availability.
+and SLA.
 
-I required an RCA /
-for every Sev-One incident /
-and repeated Sev-Two incidents.
+Major incidents /
+required an RCA.
 
-Every follow-up action /
-needed a clear owner /
-and a due date.
-
-The actions could include /
-better monitoring, /
-updated SOPs, /
-more automation, /
-or changes to system design.
-
-I checked the progress /
-every week.
-
-In the monthly review, /
-we checked whether /
-the actions really reduced /
-the number of incidents.
+Every corrective action /
+needed an owner, /
+a due date, /
+and a way to validate /
+the result.
 
 ---
 
-## R — Result｜結果
+## R
 
 **中文：**
-經過持續改善，年度系統中斷時間降低約 81%，MTTR 下降約 35%，重複 Incident 下降約 50%。團隊也逐漸從「解決問題」轉變成「預防問題」。
+Annual System Downtime 約改善 **81%**。
 
-**English｜跟讀版：**
+例如年度中斷時間約從 **80 小時降低到約 15 小時**。
+
+MTTR 約改善 **30% 到 35%**，Repeated Incident 約降低 **40% 到 50%**。
+
+**English：**
 
 After continuous improvement, /
-annual system downtime decreased /
-by about **81%**.
+annual system downtime /
+improved by about **81 percent**.
 
-MTTR decreased /
-by about **35%**.
+It went /
+from around **80 hours per year** /
+to around **15 hours**.
 
-Repeated incidents decreased /
-by about **50%**.
+MTTR improved /
+by about **30 to 35 percent**.
 
-The team changed /
-from only **fixing problems** /
-to **preventing problems**.
-
-This experience taught me /
-that high standards /
-do not mean people /
-can never make mistakes.
-
-It means /
-we should learn from mistakes /
-and prevent the same problem /
-from happening again.
+Repeated incidents /
+were reduced /
+by around **40 to 50 percent**.
 
 ---
 
-# 5. Tell me about a time you developed someone on your team.
-
-### 請分享一次你培養團隊成員的經驗。
-
-**Leadership Principles：Hire and Develop the Best / Earn Trust**
-
-## S — Situation｜情境
+## L
 
 **中文：**
-在我之前的一個團隊，新進工程師通常需要大約六個月才能獨立工作。主要原因是很多重要知識只存在資深工程師的經驗裡，文件和訓練流程不完整。
+Highest Standards 不代表永遠不犯錯，而是同樣問題不應該持續重複。
 
-**English｜跟讀版：**
+**English：**
 
-In one of my previous teams, /
-new engineers usually needed /
+High standards /
+do not mean /
+people can never make mistakes.
+
+It means /
+we learn from problems /
+and make sure /
+the same problem /
+does not keep happening.
+
+---
+
+# 5. Tell me about a time you developed your team.
+
+**Primary LP：Hire and Develop the Best**
+**Secondary：Earn Trust / Earth’s Best Employer**
+
+## S
+
+**中文：**
+我管理約 **25 人的團隊**時，新人約需要 6 個月才能獨立工作。
+
+知識過度集中在 Senior Engineer。
+
+**English：**
+
+I managed /
+a team of about **25 people**.
+
+At that time, /
+new engineers needed /
 about **six months** /
 before they could work independently.
 
-A lot of important knowledge /
-was only in the experience /
-of senior engineers.
-
-Our documents /
-and training process /
-were not complete.
+Important knowledge /
+was concentrated /
+in a few senior engineers.
 
 ---
 
-## T — Task｜任務
+## T
 
 **中文：**
-我的任務是縮短新人 Onboarding 時間，同時確保新人能夠安全而獨立地處理日常 Incident、基本 Change 和標準 Operations 工作。
+我要縮短 Onboarding，但不能犧牲 Operational Quality。
 
-**English｜跟讀版：**
+**English：**
 
-My task was to reduce /
-the onboarding time.
-
-At the same time, /
-I needed to make sure /
-new engineers could safely /
-handle daily incidents, /
-basic changes, /
-and standard operations /
-by themselves.
+My goal was /
+to shorten onboarding /
+without lowering /
+our operational standards.
 
 ---
 
-## A — Action｜行動
+## O / D
 
 **中文：**
-我先建立 Skill Matrix，把不同職位需要的能力整理清楚。接著帶領團隊建立 SOP、Knowledge Base、System Architecture 文件和 Troubleshooting Guide。
+Hiring 更多 Senior Engineer 可以短期解決問題，但 Cost 高，而且沒有解決 Knowledge Dependency。
 
-我設計 30、60、90 天 Training Plan，也安排 Senior Engineer 擔任 Mentor。新人需要實際處理 Test Incident、Standard Change 和 Knowledge Sharing。
+所以我決定把 Knowledge 制度化。
 
-我每月與新人進行 One-on-One，了解學習問題，並根據 Skill Matrix 調整訓練。
+**English：**
 
-**English｜跟讀版：**
+We could hire /
+more senior engineers.
 
-First, /
-I worked with the team /
-to create a **skill matrix**.
+That could solve /
+the short-term problem.
 
-We listed the skills /
-needed for each role.
+But it would cost more, /
+and the knowledge problem /
+would still remain.
 
-Then, /
-we created SOPs, /
+So I decided /
+to make the knowledge /
+part of the process.
+
+---
+
+## A
+
+**中文：**
+我建立 Skill Matrix、SOP、Knowledge Base、30/60/90 Day Training Plan、Mentor Program。
+
+新人要完成 Incident Simulation、Standard Change、Troubleshooting 和 Shift Handover。
+
+**English：**
+
+I created /
+a skill matrix, /
+SOPs, /
 a knowledge base, /
-system architecture documents, /
-and troubleshooting guides.
-
-I also created /
-a **30, 60, and 90-day** /
+and a 30, 60, 90-day /
 training plan.
 
 Senior engineers /
 became mentors.
 
-New engineers needed /
-to practice real tasks, /
-such as handling test incidents, /
-performing standard changes, /
-and sharing knowledge.
-
-I also had /
-a one-on-one meeting /
-with each new engineer /
-every month.
-
-I used their feedback /
-and the skill matrix /
-to improve the training.
+New engineers practiced /
+incident scenarios, /
+standard changes, /
+troubleshooting, /
+and shift handovers.
 
 ---
 
-## R — Result｜結果
+## R
 
 **中文：**
-我們完成約 90% 的 SOP 和 Knowledge Base，把新人獨立工作的時間從六個月縮短到約一個月。後來有兩位團隊成員取得 AWS Certification，也有工程師成為新的 Mentor。
+SOP / Knowledge Base 完成約 **90%**。
 
-**English｜跟讀版：**
+Onboarding 從 **6 個月降低到約 1 個月**。
+
+半年後有 **2 位 Team Member 取得 AWS Certification**。
+
+**English：**
 
 We completed /
-about **90%** /
+about **90 percent** /
 of the SOPs /
 and knowledge base.
 
-We reduced the time /
-for new engineers /
-to work independently /
-from **six months** /
+We reduced onboarding /
+from about **six months** /
 to about **one month**.
 
-Later, /
-two team members received /
+After six months, /
+two team members /
+also earned /
 AWS certifications.
 
-Some engineers also became /
-mentors for new employees.
+---
 
-This experience taught me /
-that a good manager /
-does not only manage today's work.
+## L
 
-A good manager /
-also builds the future capability /
-of the team.
+**中文：**
+Manager 的 Scale 不是自己可以解多少 Problem，而是可以培養多少人獨立解決問題。
+
+**English：**
+
+A manager’s scale /
+does not come from /
+how many problems /
+I can solve myself.
+
+It comes from /
+how many people /
+I can develop /
+to solve problems independently.
 
 ---
 
-# 6. Tell me about a time you had to make a decision quickly.
+# 6. Tell me about a time you had to make a fast decision.
 
-### 請分享一次你必須快速做決定的經驗。
+**Primary LP：Bias for Action**
+**Secondary：Ownership / Highest Standards**
 
-**Leadership Principles：Bias for Action / Ownership**
-
-## S — Situation｜情境
+## S
 
 **中文：**
-在一次 24x7 Operations Incident 中，一個重要服務突然發生異常，約 40% 使用者受到影響。當時我們還沒有完整確認 Root Cause，但問題持續擴大，Availability 不斷下降。
+一次 Production Incident 發生後，Service Impact 持續擴大，但 Root Cause 尚未完整確認。
 
-**English｜跟讀版：**
+**English：**
 
-During a 24x7 /
-operations incident, /
-an important service /
-suddenly had a serious problem.
+During one Production incident, /
+the service impact /
+was getting worse.
 
-About **40% of users** /
-were affected.
-
-We did not know /
-the full root cause yet.
-
-However, /
-the problem was getting worse, /
-and service availability /
-was continuing to decrease.
+But we still did not have /
+the full root cause.
 
 ---
 
-## T — Task｜任務
+## T
 
 **中文：**
-我的任務是在資訊不完整的情況下，找到一個能快速恢復服務、風險可控，而且可以 Rollback 的方案，同時避免 Data Loss 或更大的 Production Impact。
+我要決定繼續 Investigate，還是立即採取 Recovery Action。
 
-**English｜跟讀版：**
+**English：**
 
-My task was to make a decision /
-with limited information.
-
-I needed a solution /
-that could restore the service quickly, /
-control the risk, /
-and be rolled back if needed.
-
-I also needed to avoid /
-data loss /
-and a larger production impact.
+I needed to decide /
+whether to wait /
+for more information /
+or take recovery action /
+immediately.
 
 ---
 
-## A — Action｜行動
+## O / D
 
 **中文：**
-我先確認三件事情：影響範圍、問題是否繼續擴大，以及有哪些安全的 Recovery Option。
+我的判斷重點是：
 
-團隊發現近期一項 Change 可能有關，而且我們已經有測試過的 Rollback Plan。
+Impact 是否持續增加？
+Action 是否 Reversible？
+Worst-case Risk 是否可控？
 
-我要求工程師先確認 Backup、Rollback Command、Data Status 和 Owner，確認後才批准 Rollback。同時讓另一組工程師繼續調查 Root Cause。
+因為 Rollback 已測試，而且可以逆轉，所以我決定立即 Rollback。
 
-我要求每 15 分鐘更新 Error Rate、Availability 和服務狀態。
+**English：**
 
-**English｜跟讀版：**
+I focused /
+on three questions.
 
-First, /
-I checked three things.
-
-How big was the impact?
-
-Was the problem /
+Was the impact /
 still getting worse?
 
-And what safe recovery options /
-did we have?
+Was the action /
+reversible?
 
-The team found /
-that a recent change /
-could be related to the problem.
+And could we control /
+the worst-case risk?
 
-We also had /
-a tested rollback plan.
+Because the rollback /
+had already been tested /
+and was reversible, /
+I decided to act.
 
-I asked the engineers /
-to confirm the backup, /
-rollback commands, /
+---
+
+## A
+
+**中文：**
+Rollback 前確認 Backup、Data Status、Command、Owner 和 Validation。
+
+另一組 Engineer 繼續調查 Root Cause。
+
+Recovery 後暫停其他 Production Change。
+
+**English：**
+
+Before the rollback, /
+I confirmed /
+the backup, /
 data status, /
-and owners.
-
-After that, /
-I approved the rollback.
+commands, /
+owners, /
+and validation steps.
 
 At the same time, /
-another group continued /
+another team continued /
 the root cause investigation.
 
-I asked for an update /
-every **15 minutes** /
-on error rate, /
-availability, /
-and service status.
+After recovery, /
+I paused further changes /
+until the service /
+was fully stable.
 
 ---
 
-## R — Result｜結果
+## R
 
 **中文：**
-我們在 25 分鐘內恢復服務，沒有 Data Loss，也沒有產生新的重大問題。後續 RCA 確認該 Change 是主要原因，因此我們進一步更新 Change Validation Checklist。
+服務約在 **25 到 40 分鐘**恢復，而且沒有發生 Data Loss。
 
-**English｜跟讀版：**
+**English：**
 
 We restored the service /
-within **25 minutes**.
+within about **25 to 40 minutes**.
 
-There was **no data loss** /
-and no new major problem.
+There was /
+**no data loss**.
 
-The RCA later confirmed /
-that the recent change /
-was the main cause.
+---
 
-We also updated /
-the change validation checklist.
+## L
 
-This experience taught me /
-that **Bias for Action** /
+**中文：**
+Bias for Action 不是越快越好，而是當 Decision Reversible 且 Risk 可控時，不要因 Over-analysis 延誤 Recovery。
+
+**English：**
+
+Bias for Action /
 does not mean /
-making a decision without thinking.
+acting without thinking.
 
 It means /
-understanding the risk /
-and taking quick action /
-with a safe /
-and reversible solution.
+avoiding over-analysis /
+when the decision /
+is reversible /
+and the risk /
+can be controlled.
 
 ---
 
-# 7. Tell me about a time you disagreed with your manager or another team.
+# 7. Tell me about a time you disagreed with your manager.
 
-### 請分享一次你和主管或其他團隊意見不同的經驗。
+**Primary LP：Have Backbone; Disagree and Commit**
+**Secondary：Earn Trust / Are Right, A Lot**
 
-**Leadership Principles：Have Backbone; Disagree and Commit / Earn Trust**
-
-## S — Situation｜情境
+## S
 
 **中文：**
-有一次管理層希望在週末快速執行一項 Production Infrastructure Change。但我認為一次部署到所有 Production Environment 風險過高，因為測試時間不足，而且可能影響約 20 個服務。
+有一次 Management 希望快速對 Production 做 Infrastructure Change，大約可能影響 **10 到 20 個 Services**。
 
-**English｜跟讀版：**
+我認為測試時間不足，直接 Full Deployment 風險過高。
+
+**English：**
 
 One time, /
-management wanted to complete /
-a Production infrastructure change /
-quickly during the weekend.
+management wanted /
+to make a Production change /
+very quickly.
 
-However, /
-I believed deploying the change /
-to all Production environments /
-at the same time /
-was too risky.
+The change could affect /
+about **10 to 20 services**.
 
-The test time was not enough, /
-and the change could affect /
-about **20 services**.
-
----
-
-## T — Task｜任務
-
-**中文：**
-我的任務不是單純反對，而是清楚說明 Risk，並提出一個既能完成 Business Goal、又能降低 Production Risk 的替代方案。
-
-**English｜跟讀版：**
-
-My task was not /
-to simply say no.
-
-I needed to explain /
-the risk clearly /
-and provide another solution.
-
-The new solution needed /
-to support the business goal /
-and also reduce /
-the Production risk.
+I believed /
+that a full deployment /
+was too risky /
+because the test time /
+was not enough.
 
 ---
 
-## A — Action｜行動
+## T
 
 **中文：**
-我整理 Business Impact、Rollback Risk、Monitoring Data 和 Test Result，並向管理層提出 Canary Deployment。
+我的工作不是只說 No，而是提供 Evidence 和 Alternative。
 
-我建議先部署到 10% 的環境，觀察 30 分鐘。如果 Error Rate、Latency 和 Availability 都正常，再逐步增加部署比例。
+**English：**
 
-同時，我準備 Rollback Plan、Monitoring Dashboard 和明確的 Stop Criteria。
+My job /
+was not only /
+to say no.
 
-**English｜跟讀版：**
+I needed /
+to explain the risk /
+with data /
+and provide /
+a practical alternative.
 
-I prepared information /
-about the business impact, /
-rollback risk, /
-monitoring data, /
-and test results.
+---
 
-Then, /
-I proposed a **canary deployment**.
+## O / D
 
-I suggested deploying /
-to only **10%** /
+**中文：**
+Full Deployment 最快，但 Blast Radius 最大。
+
+延期最安全，但影響 Business Schedule。
+
+所以我提出 Canary / Phased Deployment。
+
+**English：**
+
+A full deployment /
+was the fastest option, /
+but it had /
+the largest blast radius.
+
+Delaying the change /
+was safer, /
+but it would affect /
+the business schedule.
+
+So I proposed /
+a **phased deployment**.
+
+---
+
+## A
+
+**中文：**
+先 Deployment 到大約 **10% Environment**。
+
+觀察 **30 分鐘** Error Rate、Latency 和 Availability。
+
+正常再逐步擴大。
+
+同時準備 Rollback Plan、Dashboard 和 Stop Criteria。
+
+**English：**
+
+We deployed /
+to about **10 percent** /
 of the environment first.
 
-We would watch it /
-for **30 minutes**.
-
-If the error rate, /
+Then we watched /
+the error rate, /
 latency, /
 and availability /
-were normal, /
-we could continue.
+for **30 minutes**.
+
+If everything was normal, /
+we continued /
+step by step.
 
 I also prepared /
 a rollback plan, /
-a monitoring dashboard, /
+monitoring dashboard, /
 and clear stop criteria.
 
-Management agreed /
-to use this approach.
-
 ---
 
-## R — Result｜結果
+## R
 
 **中文：**
-變更最後順利完成，沒有 Production Outage，也沒有重大 Incident。雖然比原計畫多花約兩小時，但大幅降低部署風險。
+Change 成功完成，沒有 Production Outage。
 
-我也認為如果最後公司做出不同決定，只要沒有安全或法規問題，我仍然會完全支持最後決定，這就是 Disagree and Commit。
+雖然比原計畫多約 **1 到 2 小時**，但大幅降低 Risk。
 
-**English｜跟讀版：**
+**English：**
 
-The change was completed /
-successfully.
+The change /
+was completed successfully.
 
 There was /
-**no Production outage** /
-and no major incident.
+no Production outage.
 
 The process took /
-about two more hours /
-than the original plan.
-
-However, /
-it greatly reduced /
+about **one to two more hours**, /
+but it greatly reduced /
 the deployment risk.
-
-For me, /
-**Disagree and Commit** means /
-I should speak up /
-before the decision.
-
-But after the final decision, /
-I will fully support it /
-and help the team /
-deliver the result.
 
 ---
 
-# 8. Tell me about a failure or mistake and what you learned from it.
+## L
 
-### 請分享一次失敗或犯錯的經驗，以及你學到了什麼。
+**English：**
 
-**Leadership Principles：Learn and Be Curious / Earn Trust / Ownership**
+For me, /
+Disagree and Commit means /
+I speak up /
+before the decision.
 
-## S — Situation｜情境
+But after the decision, /
+I fully support /
+the final direction.
+
+---
+
+# 8. Tell me about a failure.
+
+**Primary LP：Learn and Be Curious**
+**Secondary：Ownership / Earn Trust**
+
+## S
 
 **中文：**
-我曾經負責一個 Infrastructure Project，原本預計八週完成。技術方案已經準備好，但到第四週才發現 Application、Network 和 Security Team 還有多個重要 Dependency 尚未完成。
+我曾負責一個原定 **8 週**完成的 Infrastructure Project，但我低估了 Application、Network、Security Team 的 Dependency。
 
-**English｜跟讀版：**
+**English：**
 
 I was responsible /
 for an infrastructure project /
 that was planned /
 to finish in **eight weeks**.
 
-The technical solution /
-was ready.
-
 However, /
-in week four, /
-I found that the Application, /
-Network, /
-and Security teams /
-still had several important dependencies.
+I underestimated /
+the dependencies /
+between several teams.
 
 ---
 
-## T — Task｜任務
+## T
 
 **中文：**
-我的任務是重新評估 Project Schedule、降低 Delay Impact，同時找出我在 Planning 上做錯的地方，而且不能為了趕進度而省略 Security、Network 或 Operational Review。
+我需要承認 Planning Gap，重新建立可執行的 Plan。
 
-**English｜跟讀版：**
+**English：**
 
-My task was /
-to review the project schedule /
-and reduce the delay.
-
-I also needed /
-to understand /
-what was wrong /
-with my project planning.
-
-At the same time, /
-I did not want to skip /
-important Security, /
-Network, /
-or Operational Reviews.
+My responsibility /
+was to accept /
+that this was /
+a planning problem /
+and rebuild /
+a realistic plan.
 
 ---
 
-## A — Action｜行動
+## A
 
 **中文：**
-我先承認自己低估了 Cross-Team Dependency，而沒有責怪其他團隊。
+我建立 Dependency List、Risk List、Owner、Milestone。
 
-我重新召集所有 Owner，建立 Dependency List、Risk List、Owner 和新的 Milestone。
+導入 Weekly Cross-Team Review。
 
-接著把專案拆成較小階段，先執行不依賴其他團隊的部分，並建立每週一次 Cross-Team Review。
+大型專案 Kickoff 增加 Security Review、Change Requirement、Operational Readiness。
 
-從那之後，我也把 Security Review、Change Approval、Operational Readiness 和 Dependency Review 納入專案初期規劃。
+**English：**
 
-**English｜跟讀版：**
+I rebuilt /
+the project plan.
 
-First, /
-I accepted that /
-I had underestimated /
-the cross-team dependencies.
-
-I did not blame /
-the other teams.
-
-Instead, /
-I brought all the owners /
-together again.
-
-We created /
+I added /
 a dependency list, /
-a risk list, /
+risk list, /
 clear owners, /
-and new milestones.
+and milestones.
 
-I also divided the project /
-into smaller phases.
-
-We completed the work /
-that did not depend /
-on other teams first.
-
-Then, /
-I created a weekly /
-cross-team review.
-
-For future projects, /
-I also added /
-Security Review, /
-Change Approval, /
-Operational Readiness, /
-and Dependency Review /
-to the early planning stage.
+I also created /
+a weekly cross-team review.
 
 ---
 
-## R — Result｜結果
+## R
 
 **中文：**
-專案最後比原定計畫晚兩週完成，但所有必要的 Security 和 Network Review 都有完成，也沒有再出現重大 Blocking Issue。
+專案最後比原定計畫晚約 **2 週**。
 
-後來我把這套 Planning Template 應用到其他大型專案，Cross-Team Delay 約下降 40%。
+但導入新的 Planning Template 後，後續 Cross-Team Delay 約改善 **30% 到 40%**。
 
-**English｜跟讀版：**
+**English：**
 
 The project finished /
-**two weeks later** /
+about **two weeks later** /
 than the original plan.
 
 However, /
-we completed all required /
-Security and Network reviews.
+after using /
+the new planning process, /
+cross-team delays /
+improved by about /
+**30 to 40 percent**.
 
-We also did not have /
-any more major blockers.
+---
 
-Later, /
-I used the new planning template /
-for other large projects.
+## L
 
-Cross-team delays decreased /
-by about **40%**.
+**中文：**
+Good Technical Design 不等於 Good Delivery。
 
-This experience taught me /
-that a good technical solution /
-does not always mean /
-a good project.
+**English：**
 
-A manager also needs /
-to manage communication, /
+I learned /
+that a good technical design /
+does not automatically mean /
+good delivery.
+
+A manager must also manage /
+dependencies, /
+communication, /
 risk, /
-and dependencies.
+and readiness.
 
 ---
 
-# 9. How do you manage a 24x7 operations team?
+# 9. How do you manage a 24x7 Operations Team?
 
-### 你如何管理一個 24x7 Operations Team？
+**Primary LP：Ownership / Highest Standards**
+**Secondary：Earth’s Best Employer / Deliver Results**
 
-**Leadership Principles：Ownership / Insist on the Highest Standards / Strive to be Earth’s Best Employer**
-
-## S — Situation｜情境
+## S
 
 **中文：**
-在管理 24x7 Operations Team 時，我曾經遇過 Shift Handover 資訊不完整、Incident Escalation 標準不一致，以及少數工程師 On-Call 負擔過重的問題。
+我曾管理約 **20 到 25 人的 24x7 Operations Team**。
 
-這不只會影響 Incident Response，也容易造成 Engineer Burnout。
+主要風險包括 Shift Handover、Escalation、Ticket Priority 和 On-call Workload。
 
-**English｜跟讀版：**
+**English：**
 
-When I managed /
-a **24x7 operations team**, /
-we had several problems.
+I managed /
+a 24x7 operations team /
+of about **20 to 25 people**.
 
-Some shift handovers /
-were not complete.
-
-Escalation decisions /
-were not always consistent.
-
-And some engineers /
-had too much on-call work.
-
-These problems /
-could delay incident response /
-and also cause /
-engineer burnout.
+Important risks included /
+shift handover, /
+escalation, /
+ticket priority, /
+and on-call workload.
 
 ---
 
-## T — Task｜任務
+## T
 
 **中文：**
-我的任務是建立清楚的 Ownership、Handover 和 Escalation Process，同時維持 Service Quality、快速 Incident Response 和合理的團隊工作負荷。
+我要確保任何時間發生 Incident，都有人知道誰負責、何時 Escalate、如何 Recovery。
 
-**English｜跟讀版：**
+**English：**
 
-My task was to create /
-clear ownership, /
-handover, /
-and escalation processes.
-
-At the same time, /
-I needed to maintain /
-service quality, /
-fast incident response, /
-and a reasonable workload /
-for the team.
+My goal was /
+to make sure /
+that during any incident, /
+everyone knew /
+who owned the problem, /
+when to escalate, /
+and how to recover.
 
 ---
 
-## A — Action｜行動
+## A
 
 **中文：**
-我先定義 Sev-1、Sev-2 和 Sev-3 標準，為每個等級設定 Response Time、Escalation Owner 和 Communication Rule。
+我建立 Severity Standard、Shift Handover Template、Escalation Matrix、On-call Backup。
 
-接著建立 Shift Handover Template，要求記錄 Incident、Change、Risk、Pending Ticket 和 Next Action。Sev-1 Incident 則必須進行口頭交接。
+並追蹤 MTTR、SLA、Availability、Repeated Incident、Ticket Backlog。
 
-我也持續追蹤 Ticket Backlog、MTTR、SLA、Availability、Repeated Incident 和 On-Call Hours。
+**English：**
 
-在排班方面，我確保每位工程師都有 Backup，也定期檢查 Workload、休息和 Training Need。
+I used /
+clear severity levels, /
+shift handovers, /
+an escalation matrix, /
+and on-call backup.
 
-**English｜跟讀版：**
-
-First, /
-I defined the standards /
-for Sev-One, /
-Sev-Two, /
-and Sev-Three.
-
-For each level, /
-I defined /
-the response time, /
-escalation owner, /
-and communication rules.
-
-Then, /
-I created a **shift handover template**.
-
-Each shift needed /
-to record incidents, /
-changes, /
-risks, /
-pending tickets, /
-and next actions.
-
-For a Sev-One incident, /
-we also required /
-a verbal handover.
-
-I tracked /
-ticket backlog, /
+I also tracked /
 MTTR, /
 SLA, /
 availability, /
 repeated incidents, /
-and on-call hours.
-
-When creating schedules, /
-I made sure /
-every engineer /
-had backup support.
-
-I also reviewed /
-workload, /
-rest time, /
-and training needs.
+and ticket backlog.
 
 ---
 
-## R — Result｜結果
+## R
 
 **中文：**
-交接遺漏造成的 Incident Delay 下降約 50%，MTTR 改善約 30%，SLA 達成率維持 99% 以上。
+SLA 維持在 **99% 以上**。
 
-透過重新安排 On-Call 和 Backup，團隊加班時間也下降約 25%。
+MTTR 約改善 **30%**。
 
-**English｜跟讀版：**
+Handover Related Delay 約降低 **40% 到 50%**。
 
-Incident delays /
-caused by missing handover information /
-decreased by about **50%**.
+透過 Monitoring 改善，重要異常能在 **約 20 分鐘內被發現**。
 
-MTTR improved /
-by about **30%**.
+**English：**
 
 SLA performance stayed /
-above **99%**.
+above **99 percent**.
 
-After we improved /
-the on-call schedule /
-and backup support, /
-team overtime decreased /
-by about **25%**.
+MTTR improved /
+by about **30 percent**.
+
+Handover-related delays /
+were reduced /
+by around **40 to 50 percent**.
+
+Important issues /
+could also be detected /
+within about **20 minutes**.
+
+---
+
+## L
+
+**English：**
 
 My goal /
-is not to keep the team /
-busy all the time.
+is not to keep /
+the team busy.
 
 My goal is /
 to make operations /
-**stable and predictable**.
+**stable, predictable, /
+and safe**.
 
 ---
 
-# 10. Why do you want to join AWS Data Center Operations?
+# 10. Why Amazon? Why Data Center Operations?
 
-### 為什麼你想加入 AWS Data Center Operations？
+**Primary LP：Customer Obsession / Learn and Be Curious**
+**Secondary：Ownership**
 
-**Leadership Principles：Customer Obsession / Ownership / Learn and Be Curious**
-
-## S — Situation｜情境
+## S
 
 **中文：**
-我的職涯主要集中在 Infrastructure、Network、Cloud、Security 和 IT Operations。我管理過跨國團隊，也負責過需要 24x7 運作的 Mission-Critical Environment。
+我的職涯長期集中在 Infrastructure、Network、Cloud、Security、Data Center 和 24x7 Operations。
 
-**English｜跟讀版：**
+管理過 **500+ Servers** 的 Infrastructure Environment，也負責過 Hybrid Cloud、Network、Security 和 Mission-Critical Services。
+
+年度 IT Budget / P&L 約為 **USD 3M–5M**。
+
+**English：**
 
 Most of my career /
-has been in Infrastructure, /
+has been focused /
+on Infrastructure, /
 Network, /
 Cloud, /
 Security, /
-and IT Operations.
+Data Center, /
+and 24x7 Operations.
 
-I have also managed /
-international teams /
-and mission-critical environments /
-that needed to run /
-**24 hours a day**.
+I have worked /
+with infrastructure environments /
+of more than **500 servers**.
+
+I also managed /
+Hybrid Cloud, /
+Network, /
+Security, /
+and mission-critical services.
+
+My annual IT budget /
+was around /
+**three to five million US dollars**.
 
 ---
 
-## T — Task｜目標
+## T / Why AWS
 
 **中文：**
-現在我希望加入一個更大規模的 Infrastructure Operations 組織，把 Reliability、Incident Management、Automation 和 People Management 經驗應用在更高標準的環境。
+現在我希望進入一個更大型、更標準化，而且 Operational Quality 會直接影響 Customer Experience 的 Infrastructure Organization。
 
-**English｜跟讀版：**
+AWS Data Center Operations 吸引我，不只是因為 Brand，而是因為它把 Availability、Safety、Security、Incident Response、Standard Process 和 People Development 都視為核心能力。
+
+**English：**
 
 Now, /
-I want to join /
-a larger infrastructure /
-operations organization.
+I want to work /
+in a much larger /
+and more standardized /
+infrastructure environment.
 
-I want to use /
-my experience in reliability, /
-incident management, /
-automation, /
-and people management /
-in an environment /
-with very high standards.
+AWS Data Center Operations /
+is attractive to me /
+because the role /
+is not only about hardware.
+
+It also focuses on /
+availability, /
+safety, /
+security, /
+incident response, /
+standard processes, /
+and people development.
 
 ---
 
-## A — Action｜為什麼是 AWS
+## Value
 
-**中文：**
-我研究 AWS Data Center Operations 後，了解到這個角色不只是管理設備。
+**English：**
 
-它也很重視 Safety、Standard Process、Operational Excellence、Incident Response、Availability 和 Team Development。
-
-這些和我過去的經驗非常相關。我曾經改善 Operations Process、建立 Automation、降低 Downtime，也培養工程師處理複雜問題。
-
-另外，我希望了解 AWS 如何在全球規模管理 Data Center、建立一致標準，並把 Operations Quality 轉化成 Customer Experience。
-
-**English｜跟讀版：**
-
-I studied /
-AWS Data Center Operations.
-
-I understand that /
-this role is not only /
-about managing equipment.
-
-It also focuses on /
-safety, /
-standard processes, /
-operational excellence, /
-incident response, /
-availability, /
-and team development.
-
-These areas are closely related /
-to my previous experience.
-
-I have improved /
-operations processes, /
-built automation, /
-reduced downtime, /
-and developed engineers /
-to handle complex problems.
+I believe /
+I can bring experience /
+in infrastructure, /
+networking, /
+incident management, /
+24x7 operations, /
+automation, /
+budget management, /
+and people development.
 
 At the same time, /
 I want to learn /
-how AWS manages data centers /
+how AWS operates /
+data centers /
 at a global scale.
-
-I also want to learn /
-how AWS builds standards /
-and improves /
-the customer experience.
-
----
-
-## R — Result｜我希望帶來的價值
-
-**中文：**
-我希望能為 AWS 帶來更穩定的 Operations、更快的 Incident Response、更強的 Team Capability，以及持續改善的 Operational Standards。
-
-我不是單純在找更高的 Job Title。我希望加入一個可以讓我運用過去經驗，同時繼續學習大型 Infrastructure Operations 的團隊。
-
-**English｜跟讀版：**
-
-I hope I can bring /
-more stable operations, /
-faster incident response, /
-stronger team capability, /
-and higher operational standards /
-to AWS.
 
 I am not only looking /
 for a higher job title.
 
-I want to join a team /
+I want a role /
 where I can use /
-my previous experience /
-and continue learning /
-about large-scale /
-infrastructure operations.
-
-Most importantly, /
-I want to help AWS /
-provide **safe, reliable, /
-and highly available services** /
-to customers.
+my experience /
+and continue growing /
+as an infrastructure /
+operations leader.
 
 ---
 
-# 面試跟讀練習方式
+# 11. Tell me about a time you identified or prevented an operational risk.
 
-### 第一階段：慢速跟讀
+### Safety / Operational Risk
 
-先按照 `/` 停頓。
+**Primary LP：Highest Standards / Ownership**
 
-例如：
+## S
 
-I took ownership /
-and created an Incident Bridge.
+**中文：**
+我發現不同地點的 Engineer 可以直接登入 Production 或 Network Device 做 Change。
 
-不要急著講快。先確保每個字都說清楚。
+雖然操作速度快，但存在 Human Error、Unauthorized Change 和 Audit Risk。
 
-### 第二階段：拿掉部分停頓
+**English：**
 
-熟悉之後變成：
+I found that /
+engineers in different locations /
+could directly log in /
+to Production systems /
+or network devices.
 
-I took ownership and created an Incident Bridge.
-
-讓句子逐漸變自然。
-
-### 第三階段：只看中文回答英文
-
-看到：
-
-「我先確認三件事情：影響範圍、問題是否持續擴大，以及安全的 Recovery Option。」
-
-嘗試自己說：
-
-First, I checked three things. /
-How big was the impact? /
-Was the problem getting worse? /
-And what safe recovery options did we have?
-
-### 第四階段：記 STAR，不背全文
-
-真正 Amazon 面試時，不建議逐字背答案。
-
-你只需要記：
-
-**S：發生什麼事情？**
-**T：我要解決什麼？**
-**A：我本人做了什麼？**
-**R：數據結果是多少？**
-
-尤其 Action 要多使用：
-
-**I found...**
-**I decided...**
-**I asked...**
-**I created...**
-**I changed...**
-**I reviewed...**
-**I learned...**
-
-而不是一直說：
-
-**We did...**
-
-因為 Amazon 面試官非常在意：
-
-**What did YOU do?**
+This was fast, /
+but it created /
+human error, /
+unauthorized change, /
+and audit risks.
 
 ---
 
-# 最重要的數字記憶表
+## T
 
-面試前至少記住這些數據：
+**中文：**
+我要降低操作風險，但不能讓正常 Operations 因為流程太複雜而無法執行。
 
-| 題目                  | 關鍵數字                                                             |
-| ------------------- | ---------------------------------------------------------------- |
-| Ownership Incident  | 30% users / 45 minutes / 24-hour RCA / 30% improvement           |
-| Dive Deep           | 2–3 times/day / 10–15 minutes / incidents 10 → less than 1 / 40% |
-| Automation          | 100 devices / errors -60% / review time -40%                     |
-| Operational Quality | downtime -81% / MTTR -35% / repeated incidents -50%              |
-| Develop People      | onboarding 6 months → 1 month / SOP 90% / 2 AWS certifications   |
-| Bias for Action     | 40% users / recovery in 25 minutes / no data loss                |
-| Disagree & Commit   | 20 services / 10% canary / 30-minute observation                 |
-| Failure             | 8-week project / 2-week delay / later delays -40%                |
-| 24x7 Team           | handover delay -50% / MTTR -30% / SLA 99%+ / overtime -25%       |
+**English：**
 
-**注意：面試前請把其中不是你真實紀錄的數字換掉。Amazon 很可能針對數字深入追問，所以只使用你能解釋來源與計算方式的數據。**
+My task was /
+to reduce operational risk /
+without making /
+the normal process /
+too slow or too complex.
 
-這一版已經全部統一成你要的跟讀方式。你實際準備時，我會建議先攻 **1、4、5、6、7、8**，因為這六個故事可以交叉覆蓋 Amazon 很多 Leadership Principles，不需要硬背 16 套不同故事。
+---
+
+## O / D
+
+**中文：**
+我沒有完全禁止所有 Change，而是建立 Controlled Change。
+
+**English：**
+
+I did not /
+completely block /
+all changes.
+
+Instead, /
+I created /
+a **controlled change process**.
+
+---
+
+## A
+
+**中文：**
+導入：
+
+Git Version Control
+Peer Review
+Manager / Local Supervisor Approval
+Runner / Controlled Execution
+Rollback Plan
+Audit Log
+
+重大 Change 則需要 Double Check。
+
+**English：**
+
+We introduced /
+Git version control, /
+peer review, /
+management approval, /
+controlled execution, /
+rollback plans, /
+and audit logs.
+
+For major changes, /
+we also required /
+an additional review.
+
+---
+
+## R
+
+**中文：**
+最後約 **100 台 Network Device** 都逐步納入受控管理。
+
+**English：**
+
+In the end, /
+about **100 network devices** /
+were gradually moved /
+into the controlled process.
+
+The environment became /
+safer, /
+more traceable, /
+and more standardized.
+
+---
+
+# 12. You have many open tickets and limited technicians. How do you prioritize?
+
+### Ticket Priority / Service Delivery
+
+**Primary LP：Customer Obsession / Deliver Results**
+
+## 中文邏輯
+
+我不使用單純 FIFO。
+
+優先順序是：
+
+**Safety → Service Impact → Severity → Dependency → SLA → Resource**
+
+P1：Safety / Major Outage
+P2：Service Degradation / Critical Hardware Risk
+P3：Normal Incident / Repair
+P4：Planned Work
+
+我也會保留部分 Engineer Capacity 給 Unexpected Incident。
+
+過去管理 Service Delivery 時，Employee Satisfaction 約達 **98%**。
+
+## English｜跟讀
+
+I do not prioritize tickets /
+only by arrival time.
+
+I first look at /
+**safety and service impact**.
+
+Then I check /
+severity, /
+dependencies, /
+SLA, /
+and available resources.
+
+A major outage /
+or safety issue /
+always comes first.
+
+I also keep /
+some team capacity /
+for unexpected incidents.
+
+My goal /
+is not to close /
+the largest number /
+of tickets.
+
+My goal is /
+to reduce /
+the **highest operational risk** /
+first.
+
+In one of my previous /
+service environments, /
+employee satisfaction /
+reached about **98 percent**.
+
+---
+
+# 13. What would you do if a critical server failed and the spare part was unavailable?
+
+### Hardware / Logistics / Capacity
+
+**Primary LP：Ownership / Deliver Results / Frugality**
+
+## S / Scale
+
+**中文：**
+我曾負責 **500+ Servers** 的 Infrastructure Environment，也處理跨地點 Hardware Lifecycle、Vendor Coordination 和 Capacity Planning。
+
+**English：**
+
+I have managed /
+infrastructure environments /
+with more than **500 servers**.
+
+I also worked /
+with hardware lifecycle, /
+vendor coordination, /
+and capacity planning /
+across different locations.
+
+---
+
+## Decision Framework
+
+**中文：**
+如果 Critical Server Failure 而且沒有 Spare Part，我會先確認：
+
+1. Customer / Business Impact
+2. Redundancy
+3. Failover Capacity
+4. Replacement ETA
+5. 是否可調用其他 Site Spare
+6. Vendor Escalation
+7. Remaining Capacity Risk
+
+**English：**
+
+First, /
+I would understand /
+the service impact.
+
+Then I would check /
+whether we still have /
+enough redundancy.
+
+If possible, /
+I would move the workload /
+or use a backup system /
+to protect availability.
+
+At the same time, /
+I would escalate /
+the spare-part issue /
+to Logistics /
+and the Vendor.
+
+I would also check /
+whether another site /
+could provide /
+a temporary spare.
+
+---
+
+## Long-term Action
+
+**中文：**
+Incident 結束後，我會檢討：
+
+Spare Inventory
+Failure Rate
+Supplier Lead Time
+Minimum Stock
+Capacity Headroom
+
+**English：**
+
+After the incident, /
+I would review /
+the spare inventory, /
+failure history, /
+supplier lead time, /
+and minimum stock level.
+
+The goal /
+is not only /
+to repair one server.
+
+The goal is /
+to prevent /
+the same supply problem /
+from becoming /
+another availability risk.
+
+---
+
+# Amazon DCOM 故事庫總表
+
+| Story                  | 核心數據                                                   | Primary LP         |
+| ---------------------- | ------------------------------------------------------ | ------------------ |
+| Major Incident         | 3–5 services / 20–30% users / 45–60 min / No Data Loss | Ownership          |
+| Dive Deep              | 2–3/day → <1/week / Response -30–40%                   | Dive Deep          |
+| Git + Ansible          | 100 devices / Error -50–60% / Review -30–40%           | Invent & Simplify  |
+| Operational Excellence | Downtime -81% / 80h → 15h / MTTR -30–35%               | Highest Standards  |
+| Develop People         | 25 people / SOP 90% / 6mo → 1mo / 2 AWS certs          | Hire & Develop     |
+| Bias for Action        | Recovery 25–40 min / No Data Loss                      | Bias for Action    |
+| Disagree & Commit      | 10–20 services / 10% Canary / 30 min                   | Backbone           |
+| Failure                | 8 weeks / +2 week delay / later delay -30–40%          | Learn & Curious    |
+| 24x7 Operations        | 20–25 people / SLA 99%+ / MTTR -30% / detect 20 min    | Ownership          |
+| Scale / Why AWS        | 500+ servers / USD 3M–5M                               | Customer Obsession |
+| Safety                 | 100 controlled network devices                         | Highest Standards  |
+| Service Delivery       | Satisfaction 98%                                       | Customer Obsession |
+| Hardware               | 500+ server environment                                | Ownership          |
+
+---
+
+# 面試時真正要記的 7 個步驟
+
+## S — Situation
+
+發生了什麼？
+
+## T — Task
+
+我負責什麼？
+
+## O — Options
+
+我當時有哪些選擇？
+
+## D — Decision
+
+**為什麼這樣決定？**
+
+## A — Action
+
+**我本人做了什麼？**
+
+## R — Result
+
+**用數據證明什麼？**
+
+## L — Learning
+
+如果重來一次，我會怎麼做？
+
+---
+
+# 面試官追問時記住
+
+**WHY**
+Why did you choose this?
+
+**I**
+What did you personally do?
+
+**DATA**
+What data did you use?
+
+**TRADE-OFF**
+What other options did you consider?
+
+**RESULT**
+How did you measure success?
+
+**FAILURE**
+What did not go well?
+
+**LEARNING**
+What would you do differently?
+
+---
+
+# 英文回答最後提醒
+
+不要刻意用複雜英文。
+
+Amazon 面試更重要的是：
+
+**Clear thinking.**
+**Clear ownership.**
+**Clear decisions.**
+**Clear numbers.**
+
+你可以說：
+
+> I had three options.
+
+比：
+
+> After performing a comprehensive multidimensional assessment of the available alternatives...
+
+好很多。
+
+你的英文目標不是像 Native Speaker。
+
+你的目標是讓 Interviewer 很清楚聽懂：
+
+> **What was the problem?**
+> **Why did CK make that decision?**
+> **What did CK personally do?**
+> **What was the measurable result?**
+> **What did CK learn?**
+
+這版現在已經把數據全部正式帶進故事裡了。下一個準備重點會是把這 **13 題各縮成 2 分鐘口說版**，否則目前完整版適合學習與追問準備，但實際 Phone Screen 直接完整講會偏長。
