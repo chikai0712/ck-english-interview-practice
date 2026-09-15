@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon DCOM Interview Practice · 三頁籤整合版</title>
+<style>
+:root{--ink:#172033;--muted:#64748b;--line:#dbe3ef;--bg:#f5f7fb;--accent:#2563eb;--accent-dark:#174ea6;--card:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}.wrap{max-width:1440px;margin:auto;padding:20px 16px 28px}.hero{padding:24px 28px;border-radius:18px;background:linear-gradient(135deg,#172b4d,#2864a8);color:#fff;box-shadow:0 12px 30px rgba(31,45,74,.12)}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.82}.hero h1{margin:5px 0 6px;font-size:clamp(25px,4vw,40px);line-height:1.15}.hero p{margin:0;color:#e7efff}.home{display:inline-block;margin-top:14px;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:8px;padding:6px 10px;text-decoration:none;font-size:13px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 10px;padding:7px;border:1px solid var(--line);border-radius:12px;background:var(--card);box-shadow:0 7px 20px rgba(31,45,74,.07)}.tab{border:1px solid transparent;border-radius:8px;background:transparent;color:var(--muted);cursor:pointer;font:inherit;font-weight:800;padding:10px 14px}.tab:hover,.tab:focus-visible{background:#eff6ff;color:var(--accent-dark);outline:none}.tab[aria-selected="true"]{background:var(--accent);color:#fff}.panel{display:block}.panel[hidden]{display:none}.frame{display:block;width:100%;height:calc(100vh - 205px);min-height:720px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 8px 24px rgba(31,45,74,.08)}.note{margin:9px 2px 0;color:var(--muted);font-size:13px}@media(max-width:680px){.wrap{padding:12px 9px 20px}.hero{padding:20px}.tabs{position:sticky;top:5px;z-index:4}.tab{flex:1 1 100%;text-align:left}.frame{height:calc(100vh - 275px);min-height:620px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="hero">
+  <div class="eyebrow">Amazon · Data Center Operations Manager</div>
+  <h1>Interview Practice · 三頁籤整合版</h1>
+  <p>在同一個頁面切換互動跟讀、完整英文答案與精簡答案。</p>
+  <a class="home" href="index.html">回到練習首頁</a>
+</header>
+<nav class="tabs" role="tablist" aria-label="Amazon DCOM 練習頁面">
+  <button class="tab" id="tab-practice" role="tab" aria-selected="true" aria-controls="panel-practice" data-panel="panel-practice">互動練習</button>
+  <button class="tab" id="tab-complete" role="tab" aria-selected="false" aria-controls="panel-complete" data-panel="panel-complete">完整英文答案</button>
+  <button class="tab" id="tab-short" role="tab" aria-selected="false" aria-controls="panel-short" data-panel="panel-short">精簡答案</button>
+</nav>
+<section class="panel" id="panel-practice" role="tabpanel" aria-labelledby="tab-practice">
+  <iframe class="frame" src="Amazon-Data-Center-Interview-Practice.html" title="Amazon DCOM 互動練習"></iframe>
+</section>
+<section class="panel" id="panel-complete" role="tabpanel" aria-labelledby="tab-complete" hidden>
+  <iframe class="frame" loading="lazy" src="Amazon-Data-Center-English-Answers.html" title="Amazon DCOM 完整英文答案"></iframe>
+</section>
+<section class="panel" id="panel-short" role="tabpanel" aria-labelledby="tab-short" hidden>
+  <iframe class="frame" loading="lazy" src="Amazon-Data-Center-Short-Answers.html" title="Amazon DCOM 精簡答案"></iframe>
+</section>
+<p class="note">三個頁籤使用同一套最新內容；單字朗讀與翻譯仍在各自頁面內運作。</p>
+</main>
+<script>
+const tabs=[...document.querySelectorAll('.tab')];
+function selectTab(tab){tabs.forEach(button=>{const selected=button===tab;button.setAttribute('aria-selected',selected);document.getElementById(button.dataset.panel).hidden=!selected});tab.focus()}
+tabs.forEach(tab=>tab.addEventListener('click',()=>selectTab(tab)));
+tabs.forEach(tab=>tab.addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key==='ArrowDown'){event.preventDefault();selectTab(tabs[(tabs.indexOf(tab)+1)%tabs.length])}if(event.key==='ArrowLeft'||event.key==='ArrowUp'){event.preventDefault();selectTab(tabs[(tabs.indexOf(tab)-1+tabs.length)%tabs.length])}}));
+</script>
+</body>
+</html>
