@@ -74,11 +74,11 @@ We could reuse an existing environment, depend completely on an external IDC, or
 ## A — Action｜行動
 
 **中文：**
-我將工作分成六個部分：電力與機房環境；10G三點環網、Firewall、Load Balancer、Server、Storage和Backup；Git、Jenkins、GitLab CI和Ansible；Monitoring、Logging和Alerting；Vendor RACI、SOW、SLA、BOM、Capex、Opex和TCO；以及7×24團隊的Skill Matrix、On-call、Handover、Escalation、Runbook和情境演練。我也要求共用Artifact、Approval、Pre-check、Post-check和Rollback。
+我將工作分成六個部分。第一，電力與機房環境。第二，網路與基礎設施，包括10G三點環網、Firewall、Load Balancer、Server、Storage和Backup。第三，自動化與部署，包括Git、Jenkins、GitLab CI和Ansible。第四，監控與可觀測性，包括Monitoring、Logging和Alerting。第五，供應商與成本管理，包括Vendor RACI、SOW、SLA、BOM、Capex、Opex和TCO。第六，7×24團隊營運，包括Skill Matrix、On-call、Handover、Escalation、Runbook和情境演練。我也要求所有部分使用共用Artifact、Approval、Pre-check、Post-check和Rollback流程。
 
 **English：**
 
-I divided the work into six areas: power and facility environment; the 10G three-site ring network, firewalls, load balancers, servers, storage, and backup; Git, Jenkins, GitLab CI, and Ansible; monitoring, logging, and alerting; vendor RACI, SOW, SLA, BOM, Capex, Opex, and TCO; and the 24x7 team’s skill matrix, on-call, handover, escalation, runbooks, and scenario exercises. I also required a common artifact, approval, pre-checks, post-checks, and rollback.
+I divided the work into six areas. Area one was power and facility environment. Area two was network and infrastructure, including the 10G three-site ring network, firewalls, load balancers, servers, storage, and backup. Area three was automation and deployment, including Git, Jenkins, GitLab CI, and Ansible. Area four was monitoring and observability, including monitoring, logging, and alerting. Area five was vendor and cost management, including vendor RACI, SOW, SLA, BOM, CapEx, OpEx, and TCO. Area six was 24x7 team operations, including the skill matrix, on-call, handover, escalation, runbooks, and scenario exercises. I also required every area to use common artifacts, approvals, pre-checks, post-checks, and rollback procedures.
 
 ## R / L — Result and Learning｜結果與學習
 
