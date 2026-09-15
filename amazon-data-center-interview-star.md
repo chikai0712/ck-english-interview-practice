@@ -10,7 +10,7 @@
 
 **Primary Leadership Principles：Ownership · Dive Deep · Think Big · Learn and Be Curious**
 
-## Answer — 回答
+## Self-Introduction — 自我介紹
 
 **中文：**
 我有超過23年企業IT經驗，以及超過14年管理經驗，主要領域包括Data Center、Network、System、Cloud、Security、Automation和Incident Management。我曾在遊戲橘子、鴻海及泰偉電子管理Local Data Center，負責300台以上Server、10G三點環形網路，以及後續超過500個服務。在泰偉電子，我從零建置約20個機櫃的Payment Data Center，並完成電力、UPS、冷卻、消防、網路、Storage、Backup及Monitoring。我也曾帶領最多60人的跨國團隊，管理每年約300萬至500萬美元預算。我持續研究Kafka、事件驅動架構和AI-assisted IT operations，但高風險操作仍由工程師驗證並遵循Change Approval。我的核心能力，是把複雜環境轉成可量測、可管理、可持續改善的營運服務。
@@ -568,4 +568,3 @@ Every month, I run scenario exercises to validate monitoring, incident command, 
 **English：**
 
 Start with the conclusion, then use STAR-L. Make the difference between “I” and “we” clear, and explain scope, period, denominator, and data source for every metric. If information is confidential, use ranges, percentages, service levels, and decision principles instead of customer names or sensitive architecture details.
-
