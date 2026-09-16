@@ -197,47 +197,47 @@ I integrated Prometheus, Grafana, ELK, and PagerDuty so alerts could connect to 
 ## S — Situation｜情境
 
 **中文：**
-在Unition，環境佈建約需三天，Network Device Change也有大量人工操作，造成Configuration Drift、審核不一致和Rollback困難。
+在Unition，原本的DR演練只涵蓋Google Cloud（GCP）故障後切換至AWS，流程約需13小時。我發現服務在進入Cloud之前還依賴Authoritative DNS與CDN，任何一層故障都可能造成服務不可用。
 
 **English：**
 
-At Unition, environment provisioning took about three days. Network device changes also involved a lot of manual work, which created configuration drift, inconsistent review, and difficult rollback.
+At Unition, the original disaster-recovery exercise only covered switching from Google Cloud to AWS after a full cloud failure, and it took about 13 hours. I found that the service also depended on authoritative DNS and the CDN before traffic reached the cloud. A failure in either layer could make the service unavailable.
 
 ## T — Task｜任務
 
 **中文：**
-我的目標是提升速度，同時保留Security、Approval、Testing和Audit Trail。
+我的目標是依照Failure Domain重新設計BCP，採取最小必要切換，同時保留Security、Approval、Testing、Audit Trail和Rollback。
 
 **English：**
 
-My goal was to improve speed while keeping security, approval, testing, audit trails, and production stability.
+My goal was to redesign the BCP around failure domains and use the smallest necessary failover while keeping security, approval, testing, audit trails, rollback, and production stability.
 
 ## O / D — Options and Decision｜選項與決策
 
 **中文：**
-我評估維持人工、購買大型平台，以及建立Git加Ansible的受控自動化。最後選擇Git和Ansible，因為它能提供版本控制、Peer Review、可重複執行和Rollback。
+我將BCP分成DNS Provider、CDN及Cloud Platform三層，而不是每次都啟動完整DR。這樣可以依實際故障範圍選擇可逆且最小的切換動作。
 
 **English：**
 
-I evaluated keeping the manual process, buying a large platform, and building controlled automation with Git and Ansible. I chose Git and Ansible because they provided version control, peer review, repeatable execution, and rollback.
+I divided the BCP into three layers: DNS provider, CDN, and cloud platform, instead of starting a full disaster recovery every time. This allowed us to choose a reversible, minimum-scope failover based on the actual failure domain.
 
 ## A — Action｜行動
 
 **中文：**
-我先從約30台Network Devices做Pilot，建立Configuration Template、Approval Workflow、Controlled Runner、Least Privilege、Pre-check、Post-check和Rollback。每次都確認設備狀態和服務結果，不能只把Pipeline Success當作完成。
+第一層是DNS Provider Failure：我在Amazon Route 53建立與Cloudflare一致的Hosted Zone，持續同步Records，並用獨立Health Check確認異常；切換後再驗證Authoritative DNS與多地Public Resolver的實際解析結果。第二層是CDN Failure：我把入口Index與Content拆成不同Hostname及Health Check，只切換受影響的部分。第三層才是GCP切換至AWS：Database、DNS及Application平行準備，並用Recovery Point、Schema Version、API、Read／Write及Critical Transaction Flow完成驗證。
 
 **English：**
 
-I started with a pilot of approximately 30 network devices. I created configuration templates, an approval workflow, controlled runners, least privilege, pre-checks, post-checks, and rollback. For every change, we confirmed device status and service results. We did not treat a successful pipeline as proof that the work was complete.
+For DNS provider failure, I created a Route 53 hosted zone consistent with Cloudflare, continuously synchronized records, and used independent health checks. After a switch, we verified authoritative DNS and actual results from public resolvers in multiple locations. For CDN failure, I separated the entry index from content with different hostnames and health checks, switching only the affected part. Only for a cloud-platform failure did we switch from GCP to AWS, with database, DNS, and application preparation running in parallel and validation of recovery points, schema versions, APIs, read and write operations, and critical transaction flows.
 
 ## R / L — Result and Learning｜結果與學習
 
 **中文：**
-Provisioning從三天縮短到五分鐘，MTTR從45分鐘降到12分鐘，這個Network Automation範圍的TCO降低35%，每年節省超過30,000美元。我學到，自動化要把標準、測試、授權、證據和恢復能力放進流程。
+完整DR從啟動到技術及營運驗證完成，由13小時縮短至4小時。Cloudflare DNS故障時，我們只切換DNS Provider，不必啟動完整Cloud DR，避免故障演變成長時間中斷。我學到，BCP必須沿著User Journey識別Failure Domain，並用最小Blast Radius恢復服務。
 
 **English：**
 
-Provisioning decreased from three days to five minutes, and MTTR decreased from 45 minutes to 12 minutes. Within this network automation scope, TCO decreased by 35 percent, and we saved more than 30,000 US dollars annually. I learned that automation should build standards, testing, authorization, evidence, and recovery into the process.
+The full DR process, from activation through technical and operational validation, decreased from 13 hours to four hours. During a Cloudflare DNS failure, we switched only the DNS provider and did not need to start a full cloud DR. I learned that BCP must identify failure domains along the user journey and restore service with the smallest possible blast radius.
 
 ---
 
@@ -450,11 +450,11 @@ Provisioning decreased from three days to five minutes, and MTTR decreased from 
 ## S — Situation｜情境
 
 **中文：**
-我曾管理每年約300萬至500萬美元的IT預算，也在Unition管理約150萬美元預算。公司希望控制成本，但不能影響Safety、Availability、Backup、DR和Security。
+我曾管理每年約300萬至500萬美元的IT預算，也在Unition管理約150萬美元預算。Google Cloud原本以個別需求採購，有效價格約為牌價的80%，但集團有更大的整體需求。公司希望利用規模降低成本，但不能影響Safety、Availability、Backup、DR和Security。
 
 **English：**
 
-I have managed annual IT budgets of about three to five million US dollars and a budget of about 1.5 million dollars at Unition. The company needed cost control without affecting safety, availability, backup, disaster recovery, or security.
+I have managed annual IT budgets of about three to five million US dollars and a budget of about 1.5 million dollars at Unition. Google Cloud was originally purchased for individual requirements at an effective price of about 80 percent of list price. The group had greater total demand, so we wanted to use scale to reduce cost without affecting safety, availability, backup, disaster recovery, or security.
 
 ## T — Task｜任務
 
@@ -468,20 +468,20 @@ I needed to separate necessary reliability investments from costs that could be 
 ## A — Action｜行動
 
 **中文：**
-我建立Vendor Governance、FinOps和Cost Tracking，檢查使用量、合約、供應商績效、Capacity、Critical Spare、Lead Time和重複性人工工作。我不刪除Backup、Monitoring、DR或Security Controls，而是優先改善Provisioning、Network Changes、合約和供應商績效。
+我整合各單位需求、使用量、合約到期日、計價單位、SLA和Support Level，用相同口徑比較Vendor TCO，並談判Volume Tier、Committed Usage、Price Protection、Renewal Cap、Support Coverage、Service Credit及付款驗收條件。我把Availability、Response／Resolution Time、Capacity Commitment、Data Portability、Exit Plan和DR Support寫入合約，也保留必要備援與Migration Plan。
 
 **English：**
 
-I introduced vendor governance, FinOps, and cost tracking. I reviewed usage, contracts, vendor performance, capacity, critical spares, lead times, and repeated manual work. I did not remove backup, monitoring, disaster-recovery, or security controls. I focused first on provisioning, network changes, contracts, and vendor performance.
+I consolidated requirements, usage, contract dates, billing units, SLAs, and support levels. I compared vendor TCO using the same assumptions and negotiated volume tiers, committed usage, price protection, renewal caps, support coverage, service credits, and payment and acceptance conditions. I also put availability, response and resolution times, capacity commitments, data portability, an exit plan, and DR support into the contract while retaining required redundancy and a migration plan.
 
 ## R / L — Result and Learning｜結果與學習
 
 **中文：**
-Budget Overrun從15%以上降到約3%，TCO降低35%，每年節省超過30,000美元，同時維持99.95%以上可用性。TCO 35%和年度節省數字只適用於Network Automation工作範圍，不代表整體IT預算降低35%。我學到，Frugality不是犧牲備援，而是把資源放到最能降低風險的地方。
+我們將Google Cloud有效價格由牌價的80%談到60%。以原本80%的實付價格為基準，相對成本降低25%，在相同服務範圍、預估使用量及合約期間下，約節省50,000美元，同時保留必要的SLA、Support、DR及退出能力。我學到，Frugality不是選擇最低單價，而是利用規模、合約治理及可退出設計，降低TCO但不增加營運集中風險。
 
 **English：**
 
-Budget overrun decreased from more than 15 percent to about 3 percent, TCO decreased by 35 percent, and we saved more than 30,000 US dollars annually while maintaining availability above 99.95 percent. The 35 percent TCO reduction and annual savings apply to the network automation scope, not to the entire IT budget. I learned that Frugality does not mean sacrificing redundancy. It means putting resources where they reduce the greatest risk.
+We negotiated the effective Google Cloud price from 80 percent of list price to 60 percent. Based on the original 80 percent paid price, this was a 25 percent relative cost reduction and approximately 50,000 US dollars in savings under the same scope, forecast usage, and contract period. We retained the required SLA, support, DR, and exit capabilities. I learned that Frugality is not choosing the lowest unit price; it is reducing TCO through scale and governance without increasing concentration risk.
 
 ---
 
