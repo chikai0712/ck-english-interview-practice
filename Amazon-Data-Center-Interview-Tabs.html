@@ -43,6 +43,7 @@
   <button class="tab" id="tab-practice" role="tab" aria-selected="true" aria-controls="panel-practice" data-panel="panel-practice">互動練習</button>
   <button class="tab" id="tab-complete" role="tab" aria-selected="false" aria-controls="panel-complete" data-panel="panel-complete">完整英文答案</button>
   <button class="tab" id="tab-short" role="tab" aria-selected="false" aria-controls="panel-short" data-panel="panel-short">精簡答案</button>
+  <button class="tab" id="tab-chinese" role="tab" aria-selected="false" aria-controls="panel-chinese" data-panel="panel-chinese">中文整合稿</button>
 </nav>
 <section class="panel" id="panel-practice" role="tabpanel" aria-labelledby="tab-practice">
   <iframe class="frame" src="Amazon-Data-Center-Interview-Practice.html" title="Amazon DCOM 互動練習"></iframe>
@@ -53,7 +54,10 @@
 <section class="panel" id="panel-short" role="tabpanel" aria-labelledby="tab-short" hidden>
   <iframe class="frame" loading="lazy" src="Amazon-Data-Center-Short-Answers.html" title="Amazon DCOM 精簡答案"></iframe>
 </section>
-<p class="note">三個頁籤使用同一套最新內容；單字朗讀與翻譯仍在各自頁面內運作。</p>
+<section class="panel" id="panel-chinese" role="tabpanel" aria-labelledby="tab-chinese" hidden>
+  <iframe class="frame" loading="lazy" src="Amazon-Data-Center-Chinese-Integrated.html" title="Amazon DCOM 中文整合稿"></iframe>
+</section>
+<p class="note">四個頁籤使用同一套練習內容；中文整合稿保留完整補充資料，英文答案頁籤提供英文播放。</p>
 </main>
 <script>
 const tabs=[...document.querySelectorAll('.tab')];
