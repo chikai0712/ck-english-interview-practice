@@ -13,10 +13,10 @@
 ## Self-Introduction — 自我介紹
 
 **中文：**
-我有超過23年企業IT經驗，以及超過14年管理經驗，重點包括資料中心網路、網路安全、雲端、自動化與事件管理。我的經驗涵蓋多站點10G環形網路、防火牆、監控，以及支援300台以上伺服器的基礎設施。我也帶領過跨部門團隊，管理數百萬美元的IT預算。對於這個職位，我能帶來務實的安全與韌性管理方法：清楚的網路分段、嚴謹的變更管理、可量測的遙測資料，以及可靠的日常營運。
+我有超過23年企業IT經驗，以及超過14年管理經驗，重點包括資料中心網路、網路安全、數據中台、雲端、自動化與事件管理。我的經驗涵蓋多站點10G環形網路、防火牆、監控，以及支援300台以上伺服器的基礎設施；也參與數據中台的資料整合、服務串接、權限控管與可觀測性建置。我曾規劃紅藍對抗的攻防演練，驗證網路分段、偵測告警、事件應變與復原流程，並管理中央與地方據點的網路架構、連線、標準及日常營運。我也帶領過跨部門團隊，管理數百萬美元的IT預算。對於這個職位，我能帶來務實的安全與韌性管理方法：清楚的網路分段、嚴謹的變更管理、可量測的遙測資料，以及可靠的日常營運。
 
 **English：**
-I have more than 23 years of enterprise IT experience and more than 14 years of management experience, with a strong focus on data center networking, network security, cloud, automation, and incident management. My experience includes multi-site networks with 10G ring connectivity, firewalls, monitoring, and infrastructure supporting more than 300 servers. I have also led cross-functional teams and managed multi-million-dollar IT budgets. For this role, I bring a practical approach to secure, resilient infrastructure: clear segmentation, disciplined change control, measurable telemetry, and reliable operations.
+I have more than 23 years of enterprise IT experience and more than 14 years of management experience, with a strong focus on data center networking, network security, data platforms, cloud, automation, and incident management. My experience includes multi-site networks with 10G ring connectivity, firewalls, monitoring, and infrastructure supporting more than 300 servers. I have also worked on data platform initiatives involving data integration, service connectivity, access control, and observability. I have planned Red Team and Blue Team exercises to validate network segmentation, detection and alerting, incident response, and recovery procedures. In addition, I have managed network architecture, connectivity, standards, and daily operations across central and local sites. I have led cross-functional teams and managed multi-million-dollar IT budgets. For this role, I bring a practical approach to secure, resilient infrastructure: clear segmentation, disciplined change control, measurable telemetry, and reliable operations.
 ---
 
 # 2. Why our company? Why are you interested in this Network Security Lead role?
