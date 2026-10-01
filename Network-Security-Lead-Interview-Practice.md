@@ -23,11 +23,11 @@
 
 **English：**
 I have more than 23 years of IT experience and more than 14 years of management experience. My main areas are data center networks, network security, data platforms, cloud, automation, and incident handling. I have worked with multi-site 10G ring networks, firewalls, monitoring, and systems that support more than 300 servers.
-I have worked on a shared data platform. It brought data from different systems into one common service. I helped with data connection, user access, and monitoring. This helped teams use data in a safe and the same way.
+I have worked on a shared data platform. It brought data from different systems into one common service. I helped with data connection, user access, and monitoring. This helped teams use data in a safe and in the same way.
 I have also planned Red Team and Blue Team security exercises. The Red Team acted like an attacker. The Blue Team found and handled the attack. We checked network separation, alerts, incident handling, and recovery.
 For network device changes, I use Git to save versions and review changes. Before a change, the team checks the difference, impact, and approval. We then use automation, pre-checks, backups, post-checks, and rollback plans. This makes changes safer and easier to track.
 I have managed networks for both central offices and local sites. The central team set the design, security rules, and change rules. Local teams handled daily work, monitoring, and first response.
-I have led different teams teams and managed large IT budgets. In this role, I can combine network design, security, data platforms, and automation to build safe and reliable data center networks.
+I have led different teams and managed large IT budgets. In this role, I can combine network design, security, data platforms, and automation to build safe and reliable data center networks.
 ---
 
 # 2. Why our company? Why are you interested in this Network Security Lead role?
