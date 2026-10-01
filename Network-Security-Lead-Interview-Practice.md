@@ -13,10 +13,21 @@
 ## Self-Introduction — 自我介紹
 
 **中文：**
-我有超過23年企業IT經驗，以及超過14年管理經驗，重點包括資料中心網路、網路安全、數據中台、雲端、自動化與事件管理。我的經驗涵蓋多站點10G環形網路、防火牆、監控，以及支援300台以上伺服器的基礎設施；也參與數據中台的資料整合、服務串接、權限控管與可觀測性建置。我曾規劃紅藍對抗的攻防演練，驗證網路分段、偵測告警、事件應變與復原流程，並管理中央與地方據點的網路架構、連線、標準及日常營運。我也帶領過跨部門團隊，管理數百萬美元的IT預算。對於這個職位，我能帶來務實的安全與韌性管理方法：清楚的網路分段、嚴謹的變更管理、可量測的遙測資料，以及可靠的日常營運。
+我有超過23年企業IT經驗，以及超過14年管理經驗，主要領域包括資料中心、網路安全、數據中台、自動化與跨據點營運管理。我的經驗涵蓋多站點10G環形網路、防火牆、監控，以及支援300台以上伺服器的基礎設施。
+在數據中台方面，我參與資料整合、服務串接、權限控管與可觀測性建置。數據中台的目的，是把不同系統的資料整理成共用、受治理的資料服務，讓各團隊能一致且安全地使用資料。我著重支撐這些服務的網路連線、存取控制與營運可靠性。
+在資安方面，我規劃紅藍對抗攻防演練，在授權範圍內由紅隊模擬威脅情境、藍隊負責偵測與應變，驗證網路分段、告警、事件處理與復原流程，再將演練缺口轉為改善項目並重新驗證。
+在網路設備變更方面，我利用Git進行設定版控與變更審核，讓團隊在部署前檢視設定差異、確認影響範圍並完成核准。我把核准後的變更串接自動化部署，搭配事前檢查、設定備份、事後驗證與回復計畫，使網路設備變更一致、可追溯且容易復原。
+在中央與地方據點的網路管理方面，我結合中央統一的架構、安全政策與變更標準，以及地方據點的執行、監控、故障排除與事件升級，兼顧整體一致性和各據點的實際需求。
+我也帶領過跨部門團隊，管理數百萬美元的IT預算。對這個Network Security Lead職位，我能結合網路架構、安全驗證、資料平台與自動化治理，建立安全、可靠且可持續改善的資料中心與跨區域網路。
 
 **English：**
-I have more than 23 years of enterprise IT experience and more than 14 years of management experience, with a strong focus on data center networking, network security, data platforms, cloud, automation, and incident management. My experience includes multi-site networks with 10G ring connectivity, firewalls, monitoring, and infrastructure supporting more than 300 servers. I have also worked on data platform initiatives involving data integration, service connectivity, access control, and observability. I have planned Red Team and Blue Team exercises to validate network segmentation, detection and alerting, incident response, and recovery procedures. In addition, I have managed network architecture, connectivity, standards, and daily operations across central and local sites. I have led cross-functional teams and managed multi-million-dollar IT budgets. For this role, I bring a practical approach to secure, resilient infrastructure: clear segmentation, disciplined change control, measurable telemetry, and reliable operations.
+I have more than 23 years of enterprise IT experience and more than 14 years of management experience. My main areas are data centers, network security, shared data platforms, automation, and operations across multiple sites. My experience includes 10G ring networks, firewalls, monitoring, and infrastructure supporting more than 300 servers.
+For shared data platforms, I have worked on data integration, service connectivity, access control, and observability. A shared data platform brings data from different systems into common, governed data services, so teams can use data consistently and securely. My focus is on the network connectivity, access controls, and operational reliability supporting those services.
+For security, I have planned Red Team and Blue Team exercises. Within an authorized scope, the Red Team simulates threats, while the Blue Team detects and responds to them. These exercises validate network segmentation, alerting, incident response, and recovery. I turn the findings into improvement actions and verify the fixes through retesting.
+For network-device changes, I use Git for configuration version control and change review. Before deployment, the team reviews configuration differences, checks the impact, and approves the change. I connect approved changes to automated deployment, with pre-checks, configuration backups, post-change validation, and rollback plans. This makes network-device changes consistent, traceable, and easier to recover from.
+For central and local network management, I combine centrally defined architecture, security policies, and change standards with local execution, monitoring, troubleshooting, and incident escalation. This keeps the overall network consistent while meeting the practical needs of each site.
+I have also led cross-functional teams and managed multi-million-dollar IT budgets. For this Network Security Lead role, I bring together network architecture, security validation, data platforms, and automation governance to build secure, reliable data center and multi-region networks.
+
 ---
 
 # 2. Why our company? Why are you interested in this Network Security Lead role?
